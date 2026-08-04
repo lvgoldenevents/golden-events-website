@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Studio — Custom Balloon Color Mockups | Golden Events & Entertainment</title>
+<meta name="description" content="Pick a palette and watch it come to life. Every Golden Events install starts as a free custom digital mockup in your colors.">
+<meta property="og:title" content="Design Studio — Golden Events & Entertainment">
+<meta property="og:description" content="Pick a palette. Watch it come to life.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lasvegasgoldenevents.com/design-studio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ===================================================================
+  SEO: Local business structured data (same block as the homepage — kept
+  on every page, which is standard practice for local-business sites).
+  Phone/email are intentionally omitted — contact is by form/Instagram
+  DM only. Add a "telephone" field here only if that decision changes.
+==================================================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Golden Events & Entertainment",
+  "image": "https://www.instagram.com/lasvegasgoldenevents/",
+  "url": "https://lasvegasgoldenevents.com",
+  "priceRange": "$$",
+  "areaServed": [
+    {"@type": "City", "name": "Las Vegas, NV"},
+    {"@type": "City", "name": "Henderson, NV"},
+    {"@type": "City", "name": "North Las Vegas, NV"},
+    {"@type": "City", "name": "Summerlin, NV"},
+    {"@type": "City", "name": "Paradise, NV"}
+  ],
+  "sameAs": [
+    "https://www.instagram.com/lasvegasgoldenevents/",
+    "https://www.tiktok.com/@lvgoldenevents"
+  ],
+  "description": "Luxury balloon garlands, arches, and hotel-suite event styling serving the entire Las Vegas Valley.",
+  "makesOffer": [
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Balloon Garland & Arch Installation","areaServed":"Las Vegas, NV"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hotel & Suite Balloon Decor","areaServed":"Las Vegas, NV"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Grand Opening & Corporate Balloon Decor","areaServed":"Las Vegas, NV"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Balloon Sculptures & Installations","areaServed":"Las Vegas, NV"}}
+  ]
+}
+</script>
+<style>
+/* Design Studio widget — only needed on this page. */
+.designer{
+  background:var(--charcoal); border:1px solid var(--line); border-radius:28px;
+  padding:70px 50px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  position:relative; overflow:hidden;
+}
+.swatches{ display:flex; gap:14px; flex-wrap:wrap; }
+.swatch{
+  width:42px; height:42px; border-radius:50%; border:2px solid transparent;
+  transition:transform .3s var(--ease), border-color .3s;
+  position:relative;
+}
+.swatch.active, .swatch:hover{ transform:scale(1.14); border-color:var(--cream); }
+.swatch[data-c="gold"]{ background:radial-gradient(circle at 32% 28%, #f5e3ab, #cba135 60%, #8a6a1f); }
+.swatch[data-c="emerald"]{ background:radial-gradient(circle at 32% 28%, #7fd6b3, #1c4f3f 60%, #0d281f); }
+.swatch[data-c="blush"]{ background:radial-gradient(circle at 32% 28%, #f5d3d3, #d98c8c 60%, #a35a5a); }
+.swatch[data-c="ivory"]{ background:radial-gradient(circle at 32% 28%, #ffffff, #e8ddc2 60%, #b7a878); }
+.swatch[data-c="black"]{ background:radial-gradient(circle at 32% 28%, #3a3630, #17140f 60%, #060504); }
+.arch-stage{ height:340px; position:relative; display:flex; align-items:flex-end; justify-content:center; }
+.arch{ position:relative; width:100%; height:100%; }
+.arch .balloon{ position:absolute; transition:background .5s var(--ease); }
+.balloon{
+  position:relative;
+  border-radius:50% 50% 50% 50% / 58% 58% 42% 42%;
+  box-shadow: inset -8px -10px 20px rgba(0,0,0,.35), inset 8px 10px 18px rgba(255,255,255,.12), 0 10px 25px rgba(0,0,0,.35);
+}
+.balloon::before{
+  content:'';
+  position:absolute; left:50%; bottom:-6px; width:8px; height:8px;
+  background:inherit; filter:brightness(.7);
+  clip-path:polygon(50% 100%, 0 0, 100% 0);
+  transform:translateX(-50%);
+}
+.balloon.gold{ background:radial-gradient(circle at 32% 28%, #f5e3ab, #cba135 55%, #8a6a1f 100%); }
+.balloon.emerald{ background:radial-gradient(circle at 32% 28%, #7fd6b3, #1c4f3f 55%, #0d281f 100%); }
+.balloon.blush{ background:radial-gradient(circle at 32% 28%, #f5d3d3, #d98c8c 55%, #a35a5a 100%); }
+.balloon.ivory{ background:radial-gradient(circle at 32% 28%, #ffffff, #e8ddc2 55%, #b7a878 100%); }
+.balloon.black{ background:radial-gradient(circle at 32% 28%, #3a3630, #17140f 55%, #060504 100%); }
+@media (max-width: 980px){
+  .designer{ grid-template-columns:1fr; padding:44px 26px; }
+}
+</style>
+
+
+<style>
+/* ============================= TOKENS ============================= */
+:root{
+  --black:#0b0a08;
+  --charcoal:#161310;
+  --charcoal-2:#1e1a15;
+  --gold:#cba135;
+  --gold-light:#e9d29a;
+  --gold-deep:#8a6a1f;
+  --cream:#f6efe0;
+  --cream-dim:#c9c0ac;
+  --emerald:#1c4f3f;
+  --emerald-light:#3f8f70;
+  --blush:#d98c8c;
+  --line: rgba(203,161,53,0.22);
+  --shadow: 0 20px 60px rgba(0,0,0,0.5);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:'Sora', sans-serif;
+  overflow-x:hidden;
+  position:relative;
+}
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit;}
+::selection{background:var(--gold); color:var(--black);}
+
+h1,h2,h3,h4{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  line-height:1.05;
+  letter-spacing:-0.01em;
+}
+.eyebrow{
+  font-family:'Sora',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.28em;
+  font-size:0.72rem;
+  color:var(--gold);
+  font-weight:600;
+}
+.gold-text{
+  background:linear-gradient(100deg, var(--gold-deep) 10%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-light) 90%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shimmer 6s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%,100%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+}
+.container{max-width:1180px; margin:0 auto; padding:0 32px;}
+section{position:relative; z-index:2;}
+
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:999;
+  opacity:0.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.cursor-glow{
+  position:fixed; top:0; left:0; width:520px; height:520px;
+  border-radius:50%; pointer-events:none; z-index:1;
+  background:radial-gradient(circle, rgba(203,161,53,0.10) 0%, rgba(203,161,53,0) 65%);
+  transform:translate(-50%,-50%);
+  transition:opacity .4s ease;
+  will-change:transform;
+}
+.dust{
+  position:fixed; z-index:998; pointer-events:none;
+  width:5px; height:5px; border-radius:50%;
+  background:radial-gradient(circle, var(--gold-light), var(--gold) 60%, transparent 70%);
+  animation:dustFall 1.1s ease-out forwards;
+}
+@keyframes dustFall{
+  0%{opacity:.9; transform:translateY(0) scale(1);}
+  100%{opacity:0; transform:translateY(28px) scale(.3);}
+}
+
+/* ============================= BALLOON ELEMENT ============================= */
+.balloon{
+  position:relative;
+  border-radius:50% 50% 50% 50% / 58% 58% 42% 42%;
+  box-shadow: inset -8px -10px 20px rgba(0,0,0,.35), inset 8px 10px 18px rgba(255,255,255,.12), 0 10px 25px rgba(0,0,0,.35);
+}
+.balloon::before{
+  content:'';
+  position:absolute; left:50%; bottom:-6px; width:8px; height:8px;
+  background:inherit; filter:brightness(.7);
+  clip-path:polygon(50% 100%, 0 0, 100% 0);
+  transform:translateX(-50%);
+}
+.balloon.gold{ background:radial-gradient(circle at 32% 28%, #f5e3ab, #cba135 55%, #8a6a1f 100%); }
+.balloon.emerald{ background:radial-gradient(circle at 32% 28%, #7fd6b3, #1c4f3f 55%, #0d281f 100%); }
+.balloon.blush{ background:radial-gradient(circle at 32% 28%, #f5d3d3, #d98c8c 55%, #a35a5a 100%); }
+.balloon.ivory{ background:radial-gradient(circle at 32% 28%, #ffffff, #e8ddc2 55%, #b7a878 100%); }
+.balloon.black{ background:radial-gradient(circle at 32% 28%, #3a3630, #17140f 55%, #060504 100%); }
+
+/* ============================= NAV ============================= */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:26px 40px;
+  transition:all .4s var(--ease);
+  background:transparent;
+}
+.nav.scrolled{
+  padding:16px 40px;
+  background:rgba(11,10,8,0.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.logo{
+  font-family:'Fraunces',serif; font-weight:600; font-size:1.28rem;
+  letter-spacing:0.02em; display:flex; align-items:center; gap:8px;
+}
+.logo .dot{
+  width:7px; height:7px; border-radius:50%; background:var(--gold);
+  box-shadow:0 0 12px var(--gold);
+}
+.nav-links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+.nav-links a{
+  font-size:0.79rem; letter-spacing:0.02em; color:var(--cream-dim);
+  position:relative; transition:color .3s; white-space:nowrap;
+}
+.nav-links a:hover{color:var(--cream);}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:var(--gold);
+  transition:width .3s var(--ease);
+}
+.nav-links a:hover::after{width:100%;}
+.nav-links a.current{ color:var(--gold-light); }
+.nav-links a.current::after{ width:100%; }
+.nav-right{ display:flex; align-items:center; gap:18px; }
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 26px; border-radius:999px;
+  font-size:0.82rem; font-weight:600; letter-spacing:0.03em;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.btn-gold{
+  background:linear-gradient(120deg, var(--gold-light), var(--gold) 60%, var(--gold-deep));
+  color:#161310;
+}
+.btn-gold:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(203,161,53,0.35); }
+.btn-outline{
+  border:1px solid var(--line); color:var(--cream);
+}
+.btn-outline:hover{ border-color:var(--gold); background:rgba(203,161,53,0.08); }
+
+.menu-toggle{
+  display:none; flex-direction:column; gap:5px; z-index:600; cursor:pointer;
+}
+.menu-toggle span{ width:22px; height:1px; background:var(--cream); transition:.3s; }
+
+.mobile-menu{
+  position:fixed; inset:0; background:rgba(11,10,8,0.98); z-index:400;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
+  opacity:0; pointer-events:none; transition:opacity .35s var(--ease);
+}
+.mobile-menu.open{ opacity:1; pointer-events:all; }
+.mobile-menu a{ font-family:'Fraunces',serif; font-size:1.6rem; color:var(--cream); }
+.mobile-menu a.current{ color:var(--gold-light); }
+
+/* ============================= PAGE HEAD (interior pages) ============================= */
+.page-head{ padding:168px 0 64px; border-bottom:1px solid var(--line); }
+.crumb{ font-size:0.78rem; color:var(--cream-dim); display:flex; align-items:center; gap:8px; margin-bottom:26px; }
+.crumb a{ transition:color .25s; }
+.crumb a:hover{ color:var(--gold-light); }
+.crumb span{ color:var(--gold); opacity:.6; }
+.crumb .here{ color:var(--gold-light); }
+.page-head h1{ font-size:clamp(2.1rem,4.4vw,3.1rem); margin:16px 0 22px; max-width:780px; }
+.page-head p{ max-width:640px; color:var(--cream-dim); font-size:1.02rem; line-height:1.75; }
+
+/* ============================= REVEAL ============================= */
+[data-reveal]{ opacity:0; transform:translateY(34px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+[data-reveal].in-view{ opacity:1; transform:translateY(0); }
+
+.section-head{ max-width:640px; margin-bottom:64px; }
+.section-head h2{ font-size:clamp(2rem, 4vw, 3rem); margin-top:14px; }
+.section-pad{ padding:88px 0; }
+.section-alt{ background:var(--charcoal); }
+
+/* ============================= SERVICES ============================= */
+.services-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;
+}
+.service-card{
+  background:var(--charcoal); padding:44px 30px; min-height:320px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  transition:background .4s var(--ease), transform .4s var(--ease);
+}
+.service-card:hover{ background:var(--charcoal-2); transform:translateY(-6px); }
+.service-card .num{ font-family:'Fraunces',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.1em; }
+.service-icon{ width:44px; height:54px; margin:20px 0; }
+.service-card h3{ font-size:1.24rem; font-weight:600; margin-bottom:12px; }
+.service-card p{ font-size:0.89rem; color:var(--cream-dim); line-height:1.65; }
+
+/* ============================= SERVICE AREA ============================= */
+.area-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.area-card{
+  border:1px solid var(--line); border-radius:16px; padding:24px;
+  transition:border-color .35s, transform .35s var(--ease), background .35s;
+  background:var(--black);
+}
+.area-card:hover{ border-color:var(--gold); transform:translateY(-4px); background:var(--charcoal); }
+.area-card .pin{
+  width:8px; height:8px; border-radius:50%; background:var(--gold); margin-bottom:16px;
+  box-shadow:0 0 10px var(--gold);
+}
+.area-card h4{ font-size:1.02rem; font-weight:600; margin-bottom:6px; }
+.area-card p{ font-size:0.8rem; color:var(--cream-dim); }
+
+/* ============================= PRICING ============================= */
+.pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.price-card{
+  border:1px solid var(--line); border-radius:20px; padding:40px 32px;
+  display:flex; flex-direction:column; transition:transform .4s var(--ease), border-color .4s;
+  position:relative; background:var(--black);
+}
+.price-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
+.price-card.popular{ background:var(--charcoal-2); border-color:var(--gold); }
+.price-card .badge{
+  position:absolute; top:-13px; left:32px; background:var(--gold); color:#161310;
+  font-size:0.68rem; font-weight:700; letter-spacing:.06em; padding:5px 14px; border-radius:999px;
+  text-transform:uppercase;
+}
+.price-card h3{ font-size:1.2rem; margin-bottom:6px; }
+.price-card .price{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--gold-light); margin:14px 0; }
+.price-card .price span{ font-family:'Sora',sans-serif; font-size:0.85rem; color:var(--cream-dim); }
+.price-card p.desc{ color:var(--cream-dim); font-size:0.88rem; line-height:1.6; margin-bottom:22px; }
+.price-card ul{ list-style:none; margin-bottom:30px; flex-grow:1; }
+.price-card li{ font-size:0.85rem; color:var(--cream-dim); padding:8px 0; border-top:1px solid var(--line); display:flex; gap:10px; }
+.price-card li::before{ content:'✦'; color:var(--gold); font-size:0.7rem; }
+.pricing-note{ text-align:center; color:var(--cream-dim); font-size:0.8rem; margin-top:30px; }
+
+/* ============================= GALLERY ============================= */
+.gallery{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:130px; gap:14px; }
+.tile{
+  border-radius:16px; position:relative; overflow:hidden; display:flex; align-items:flex-end;
+  padding:18px; transition:transform .5s var(--ease); border:1px solid var(--line);
+}
+.tile:hover{ transform:scale(1.02); }
+.tile span{ font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.85); position:relative; z-index:2;}
+.tile-1{ grid-column:span 2; grid-row:span 2; background:linear-gradient(160deg,#8a6a1f,#0b0a08); }
+.tile-2{ grid-row:span 1; background:linear-gradient(160deg,#1c4f3f,#0b0a08); }
+.tile-3{ grid-row:span 1; background:linear-gradient(160deg,#a35a5a,#0b0a08); }
+.tile-4{ grid-row:span 2; background:linear-gradient(200deg,#3a3630,#0b0a08); }
+.tile-5{ grid-column:span 2; grid-row:span 1; background:linear-gradient(160deg,#cba135,#0b0a08); }
+.tile-6{ grid-row:span 1; background:linear-gradient(160deg,#1c4f3f,#3a3630); }
+
+/* ============================= WIDGET SLOTS (Reviews) ============================= */
+.widget-slot{
+  border:1px dashed var(--line); border-radius:20px; padding:44px;
+  text-align:center; color:var(--cream-dim); font-size:0.85rem; line-height:1.7;
+  background:rgba(203,161,53,0.03); margin-bottom:40px;
+}
+.widget-slot code{
+  display:inline-block; background:var(--charcoal); border:1px solid var(--line);
+  padding:2px 8px; border-radius:6px; color:var(--gold-light); font-size:0.78rem;
+}
+.testimonials{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.t-card{
+  background:var(--charcoal); border:1px solid var(--line); border-radius:20px; padding:36px;
+  transition:transform .4s var(--ease), border-color .4s;
+}
+.t-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
+.t-card .stars{ color:var(--gold); letter-spacing:3px; margin-bottom:18px; font-size:.9rem; }
+.t-card p{ font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; line-height:1.6; margin-bottom:22px; }
+.t-card .who{ font-size:0.8rem; color:var(--cream-dim); letter-spacing:.03em; }
+
+/* ============================= FAQ ============================= */
+.faq-list{ max-width:820px; }
+.faq-item{ border-bottom:1px solid var(--line); }
+.faq-q{
+  width:100%; display:flex; justify-content:space-between; align-items:center;
+  padding:26px 4px; text-align:left; font-family:'Fraunces',serif; font-size:1.08rem; font-weight:500;
+}
+.faq-q .plus{ font-size:1.3rem; color:var(--gold); transition:transform .35s var(--ease); flex-shrink:0; margin-left:20px; }
+.faq-item.open .faq-q .plus{ transform:rotate(45deg); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .45s var(--ease); }
+.faq-a p{ padding:0 4px 26px; color:var(--cream-dim); font-size:0.92rem; line-height:1.7; max-width:640px; }
+
+/* ============================= CLOSING CTA BAND ============================= */
+.cta-band{
+  background:var(--charcoal); border-top:1px solid var(--line);
+  padding:64px 0; text-align:center;
+}
+.cta-band h2{ font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:14px; }
+.cta-band p{ color:var(--cream-dim); margin-bottom:26px; max-width:480px; margin-left:auto; margin-right:auto; }
+.cta-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* ============================= FOOTER / CONTACT ============================= */
+.footer-cta{
+  background:linear-gradient(120deg, #241c0c, #0b0a08 60%);
+  border-top:1px solid var(--line); padding:100px 0 60px; text-align:center;
+}
+.footer-cta h2{ font-size:clamp(2.2rem,5vw,4rem); margin-bottom:22px; }
+.footer-cta > .container > p{ color:var(--cream-dim); max-width:480px; margin:0 auto 40px; line-height:1.7;}
+.footer-cta-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:70px; }
+
+.contact-form{
+  max-width:640px; margin:0 auto; text-align:left; display:grid; grid-template-columns:1fr 1fr; gap:18px;
+}
+.contact-form .full{ grid-column:1 / -1; }
+.contact-form label{ font-size:0.76rem; letter-spacing:.05em; text-transform:uppercase; color:var(--cream-dim); display:block; margin-bottom:8px; }
+.contact-form input, .contact-form select, .contact-form textarea{
+  width:100%; background:var(--black); border:1px solid var(--line); border-radius:10px;
+  padding:13px 16px; color:var(--cream); font-family:'Sora',sans-serif; font-size:0.9rem;
+  transition:border-color .3s;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus{
+  outline:none; border-color:var(--gold);
+}
+.contact-form textarea{ resize:vertical; min-height:100px; }
+.contact-form button{ margin-top:6px; }
+
+.footer-links{
+  display:flex; justify-content:center; gap:36px; margin-top:90px; flex-wrap:wrap;
+  border-top:1px solid var(--line); padding-top:36px;
+}
+.footer-links a{ font-size:0.82rem; color:var(--cream-dim); transition:color .3s; }
+.footer-links a:hover{ color:var(--gold); }
+.footer-areas{ font-size:0.75rem; color:#7a7364; margin-top:22px; line-height:1.8; max-width:700px; margin-left:auto; margin-right:auto; }
+.footer-bottom{ text-align:center; margin-top:26px; font-size:0.75rem; color:#7a7364; letter-spacing:.03em; }
+
+/* ============================= RESPONSIVE ============================= */
+@media (max-width: 1200px){
+  /* wider than the usual 980px breakpoint — 9 nav items need more room
+     before the hamburger than 6 did, otherwise it wraps awkwardly. */
+  .nav-links{ display:none; }
+  .menu-toggle{ display:flex; }
+}
+@media (max-width: 980px){
+  .services-grid{ grid-template-columns:repeat(2,1fr); }
+  .area-grid{ grid-template-columns:repeat(2,1fr); }
+  .gallery{ grid-template-columns:repeat(2,1fr); }
+  .testimonials{ grid-template-columns:1fr; }
+  .pricing-grid{ grid-template-columns:1fr; }
+  .contact-form{ grid-template-columns:1fr; }
+  .page-head{ padding:140px 0 48px; }
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="logo"><a href="/" style="display:flex; align-items:center; gap:8px;"><span class="dot"></span>Golden Events</a></div>
+  <div class="nav-links">
+    <a href="/services" class="">Services</a>
+    <a href="/areas" class="">Areas</a>
+    <a href="/pricing" class="">Pricing</a>
+    <a href="/gallery" class="">Gallery</a>
+    <a href="/reviews" class="">Reviews</a>
+    <a href="/faq" class="">FAQ</a>
+    <a href="/design-studio" class="current">Design Studio</a>
+    <a href="/how-it-works" class="">How It Works</a>
+    <a href="/book" class="">Book a Consult</a>
+  </div>
+  <div class="nav-right">
+    <a href="/book" class="btn btn-gold">Get a Quote</a>
+    <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/services" class="">Services</a>
+  <a href="/areas" class="">Areas</a>
+  <a href="/pricing" class="">Pricing</a>
+  <a href="/gallery" class="">Gallery</a>
+  <a href="/reviews" class="">Reviews</a>
+  <a href="/faq" class="">FAQ</a>
+  <a href="/design-studio" class="current">Design Studio</a>
+  <a href="/how-it-works" class="">How It Works</a>
+  <a href="/book" class="">Book a Consult</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main>
+  <div class="container page-head">
+    <div class="crumb"><a href="/">Home</a><span>/</span><span class="here">Design Studio</span></div>
+    <span class="eyebrow">Design Studio</span>
+    <h1>Pick a palette. Watch it come to <span class="gold-text">life.</span></h1>
+    <p>Every install starts as a custom digital mockup in your colors — so you know exactly what's arriving before we book a single balloon. Try it yourself.</p>
+  </div>
+
+  <div class="section-pad container">
+    <div class="designer" data-reveal>
+      <div class="designer-copy">
+        <span class="eyebrow" style="margin-bottom:16px; display:block;">Choose a Palette</span>
+        <div class="swatches" id="swatches">
+          <button class="swatch active" data-c="gold" aria-label="Gold palette"></button>
+          <button class="swatch" data-c="emerald" aria-label="Emerald palette"></button>
+          <button class="swatch" data-c="blush" aria-label="Blush palette"></button>
+          <button class="swatch" data-c="ivory" aria-label="Ivory palette"></button>
+          <button class="swatch" data-c="black" aria-label="Black palette"></button>
+        </div>
+      </div>
+      <div class="arch-stage">
+        <div class="arch" id="arch"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="container">
+      <h2>Like what you see?</h2>
+      <p>This is exactly what we send before you book anything — a free custom mockup in your own colors.</p>
+      <div class="cta-actions">
+        <a href="/book" class="btn btn-gold">Book Your Consultation</a>
+        <a href="/services" class="btn btn-outline">See Services</a>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+<!-- FOOTER / CONTACT -->
+<footer class="footer-cta" id="contact">
+  <div class="container">
+    <span class="eyebrow">Get In Touch</span>
+    <h2 style="margin-top:18px;">Let's make it <span class="gold-text">golden.</span></h2>
+    <p>DM us on Instagram or send your event details below — we'll follow up with a custom mockup, usually same day.</p>
+    <div class="footer-cta-actions">
+      <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank" class="btn btn-gold">DM on Instagram</a>
+      <!-- STRIPE: replace with your real Payment Link from the Stripe Dashboard -->
+      <a href="https://buy.stripe.com/your-payment-link" target="_blank" class="btn btn-outline">Pay a Deposit</a>
+    </div>
+
+    <!--
+      CONTACT FORM: same Netlify Forms setup as the homepage (name="contact").
+      Netlify treats forms with the same "name" across multiple pages as one
+      form, so submissions from any page land in the same inbox — no extra
+      setup needed here.
+    -->
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="position:absolute; left:-9999px;" aria-hidden="true">
+        <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div>
+        <label for="date">Event Date</label>
+        <input id="date" name="event_date" type="date">
+      </div>
+      <div>
+        <label for="type">Event Type</label>
+        <select id="type" name="event_type">
+          <option>Birthday</option>
+          <option>Hotel Suite / Proposal</option>
+          <option>Baby Shower</option>
+          <option>Grand Opening / Corporate</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="full">
+        <label for="message">Tell us about your event</label>
+        <textarea id="message" name="message" placeholder="Vibe, colors, guest count, location..."></textarea>
+      </div>
+      <div class="full">
+        <button type="submit" class="btn btn-gold">Send Details</button>
+        <p id="contactFormStatus" role="status" style="margin-top:14px; display:none;"></p>
+      </div>
+    </form>
+
+    <div class="footer-links">
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/faq">FAQ</a>
+      <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank">TikTok</a>
+    </div>
+    <div class="footer-areas">Serving the entire Las Vegas Valley — The Strip · Downtown &amp; Fremont · Henderson · Summerlin · Spring Valley · Enterprise · North Las Vegas · Paradise &amp; Winchester</div>
+    <div class="footer-bottom">© Golden Events &amp; Entertainment — Turning Moments Into Golden Memories</div>
+  </div>
+</footer>
+
+<script>
+// ---------- Mobile menu ----------
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// ---------- Nav scroll state ----------
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ---------- Reduced motion / pointer check ----------
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fineCursor = window.matchMedia('(pointer:fine)').matches;
+
+// ---------- Cursor glow + gold dust ----------
+const glow = document.getElementById('cursorGlow');
+let last = 0;
+window.addEventListener('mousemove', (e) => {
+  glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+  if(!fineCursor || reduceMotion) return;
+  const now = Date.now();
+  if(now - last > 55){
+    last = now;
+    const d = document.createElement('div');
+    d.className = 'dust';
+    d.style.left = (e.clientX + (Math.random()*10-5)) + 'px';
+    d.style.top = (e.clientY + (Math.random()*10-5)) + 'px';
+    document.body.appendChild(d);
+    setTimeout(() => d.remove(), 1200);
+  }
+});
+
+// ---------- Scroll reveal ----------
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('in-view'); });
+}, {threshold:0.15});
+document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+// ---------- Contact form: submit to Netlify Forms without leaving the page ----------
+(function(){
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('contactFormStatus');
+  if(!form || !status) return;
+  const encode = (data) => new URLSearchParams(data).toString();
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(data)
+    }).then(() => {
+      form.reset();
+      status.textContent = "Thanks — we've got your details and will follow up shortly.";
+      status.style.color = 'var(--gold, #c9a44c)';
+      status.style.display = 'block';
+    }).catch(() => {
+      status.textContent = "Something went wrong sending that — please DM us on Instagram instead so we don't miss you.";
+      status.style.color = '#e08585';
+      status.style.display = 'block';
+    });
+  });
+})();
+
+// ---------- Interactive arch designer ----------
+(function(){
+  const arch = document.getElementById('arch');
+  if(!arch) return;
+  const archCount = 15;
+  const archBalloons = [];
+  for(let i=0;i<archCount;i++){
+    const t = i/(archCount-1);
+    const bx = t*100;
+    const by = Math.sin(t*Math.PI) * 100;
+    const size = 34 + Math.sin(t*Math.PI)*20;
+    const b = document.createElement('div');
+    b.className = 'balloon gold';
+    b.style.width = size+'px';
+    b.style.height = (size*1.15)+'px';
+    b.style.left = `calc(${bx}% - ${size/2}px)`;
+    b.style.bottom = by+'px';
+    arch.appendChild(b);
+    archBalloons.push(b);
+  }
+  document.getElementById('swatches').addEventListener('click', (e) => {
+    const btn = e.target.closest('.swatch');
+    if(!btn) return;
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const c = btn.dataset.c;
+    archBalloons.forEach((b, i) => {
+      b.className = 'balloon ' + c;
+      if(i % 4 === 0 && c !== 'ivory') b.classList.add('ivory');
+    });
+  });
+})();
+
+</script>
+
+</body>
+</html>

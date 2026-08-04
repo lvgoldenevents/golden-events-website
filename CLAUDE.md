@@ -21,35 +21,87 @@ Fraunces (display/headings) + Sora (body). Signature interactive element:
 a "Design Studio" section where clicking color swatches live-recolors an
 SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
 
-## Site structure (index.html — single self-contained file)
-Nav → Hero (animated balloon field + cursor gold-dust trail) → curtain-style
-entrance intro animation on load → marquee of service areas → Services (4
-cards) → Service Area grid (8 neighborhoods) → Design Studio (interactive
-color picker) → Process (4 steps, scroll-animated) → Pricing (3 tiers) →
-Gallery (CSS-illustrated tiles, no real photos yet) → Reviews (placeholder
-widget slot + fallback testimonial cards) → Instagram (placeholder widget
-slot) → FAQ (accordion, matches FAQPage schema) → Booking (Calendly
-placeholder) → Footer contact form + Stripe deposit button.
-
-Includes: LocalBusiness + FAQPage JSON-LD schema, hidden AEO answer-first
-summary paragraph, semantic structure for AI answer engines.
+## Site structure — 10-page static site, no build step
+- `index.html` — homepage is **intentionally just the hero + marquee,
+  full stop**: Nav → Hero (animated balloon field + cursor gold-dust
+  trail) → curtain entrance animation on load → the service-area marquee
+  ticker. `body` is a flex column locked to `100dvh` with
+  `overflow:hidden`; `.hero` is `flex:1` and `.marquee-wrap` is
+  `flex:0 0 auto`, so the marquee always sits at the bottom of that one
+  screen and the homepage never scrolls, by design. There's no footer or
+  any other section here — reaching anything else means using the nav.
+- Nine standalone pages hold everything else, each reached via a clean
+  URL (Netlify serves `/slug` from `slug.html` by default, no redirects
+  file needed):
+  - `services.html`, `areas.html`, `pricing.html`, `reviews.html`,
+    `faq.html` — the original content, unchanged, one per page.
+  - `gallery.html` — the tile grid **plus** the Instagram/TikTok "Follow
+    Along" embeds merged in below it (moved here from the homepage —
+    thematically both are "see our real work").
+  - `design-studio.html` — the interactive color-picker widget.
+  - `how-it-works.html` — the 4-step process.
+  - `book.html` — the Calendly placeholder + "DM on Instagram Instead",
+    now the destination for every "Get a Quote" button sitewide.
+- **Nav bar (top, every page including the homepage) lists all 9 pages**:
+  Services / Areas / Pricing / Gallery / Reviews / FAQ / Design Studio /
+  How It Works / Book a Consult. That's deliberate — everything is
+  reachable straight from the top nav rather than buried in the footer.
+  Because 9 items need more room than 6 did, the nav switches to the
+  mobile hamburger menu at `max-width:1200px` instead of the usual
+  `980px` (a narrower breakpoint here causes an ugly two-line wrap right
+  before the switch — keep the wider breakpoint if more nav items get
+  added, or revisit it if any get removed). The footer-links row on
+  every non-home page is back to the original curated set (Services,
+  Pricing, Gallery, FAQ, Instagram, TikTok) — it's a shortcut, not the
+  only way to reach the other pages anymore. Every "Get a Quote" button
+  sitewide points to `/book`.
+- No shared partials/includes (matches the "no build step" constraint) —
+  each page duplicates its own nav, footer (incl. the Netlify contact
+  form), and CSS/JS. Only `index.html` skips the footer entirely, since
+  it has no scrollable area for one to live in.
+- `#contact` resolves to that page's own footer contact form. The
+  homepage has no `#contact` (no footer) — don't link to
+  `index.html#contact` from anywhere.
+- LocalBusiness JSON-LD is duplicated in every page's `<head>`. FAQPage
+  JSON-LD lives only on `faq.html`, next to the matching visible FAQ text
+  (each `faq-item` has a stable `id`, e.g. `faq-cost`, so other pages can
+  deep-link to a specific question with `/faq#faq-cost`).
+- Hidden AEO answer-first summary paragraph stays homepage-only.
+- Each page's CSS/JS only includes what that page actually uses —
+  page-specific styles (e.g. `.designer`/`.swatches` on `design-studio.html`,
+  `.process`/`.step` on `how-it-works.html`, `.social-embed-*`/`.ig-strip`
+  on `gallery.html`) live in a `<style>` block in that page's own `<head>`,
+  not in the shared boilerplate. Keep that discipline when adding new
+  pages: don't copy component CSS "just in case" a page doesn't use it.
+- **Local testing**: a plain static file server (e.g. `ruby -run -e httpd`)
+  will 404 on the clean URLs since it doesn't know to try `slug.html` —
+  that's a local-server limitation, not a site bug. A small custom
+  WEBrick script that mimics Netlify's behavior is the right way to test
+  clean URLs locally if that comes up again.
 
 ## Integration status — placeholders that still need real IDs/links
-- Formspree form ID (contact form `action` attribute)
-- Stripe Payment Link (footer "Pay a Deposit" button)
-- Calendly link (`#calendlyEmbed` data-url, plus commented-out widget script)
-- Google Reviews embed (EmbedSocial/Taggbox — `#reviews` widget-slot div)
-- Instagram feed embed (SnapWidget/Taggbox — Instagram section widget-slot div)
-- Real phone/domain in the JSON-LD LocalBusiness schema (currently placeholder)
+- Stripe Payment Link (footer "Pay a Deposit" button, every page — search
+  `your-payment-link`)
+- Calendly link (`#calendlyEmbed` data-url on `book.html`, plus a
+  commented-out widget-script note right above it — search `your-handle`)
+- Google Reviews embed (EmbedSocial/Taggbox/OpenWidget — the `.widget-slot`
+  div on `reviews.html`)
+- A 4th embed in `gallery.html`'s "Fresh off the install" social grid —
+  3 TikTok embeds are in, the last slot is reserved for an Instagram post
+  (Instagram only exposes its "Embed" option to logged-in viewers, so this
+  one needs a manual grab while signed in — see the HTML comment right
+  above the grid)
 
-Swap these in as they're set up — search for `YOUR_FORM_ID`, `your-payment-link`,
-`your-handle`, and the widget-slot comments in index.html.
+Already done, for reference (not still pending): contact form uses native
+Netlify Forms sitewide (no Formspree — same `name="contact"` form on every
+page feeds one inbox); TikTok is linked throughout; LocalBusiness schema
+has the real domain and intentionally omits phone/email (contact is
+form/DM only — see the comment above that schema block if that changes).
 
 ## Deployment
-GitHub repo → Netlify (auto-deploy on push) → Cloudflare DNS → Namecheap
-domain. Netlify site currently private at
-https://golden-events-entertainment.netlify.app — needs to be made public
-once ready to go live.
+GitHub repo (`lvgoldenevents/golden-events-website`) → Netlify (auto-deploy
+on push to `main`) → Cloudflare DNS (Bot Fight Mode / WAF / SSL hardening
+in progress) → Namecheap domain. Live at https://lasvegasgoldenevents.com.
 
 ## Accounts already created
 - GitHub: lvgoldenevents (repo: golden-events-website)
@@ -59,8 +111,9 @@ once ready to go live.
   offered was "Submit a Business Video" — pending as of last check
 
 ## Growth plan (for reference — not code work, but informs priorities)
-1. **Phase 0**: infra + Google Business Profile + Formspree/Stripe/Calendly/
-   review-widget accounts
+1. **Phase 0**: infra + Google Business Profile + Stripe/Calendly/
+   review-widget accounts (contact form itself is already handled by
+   Netlify Forms, no separate signup needed)
 2. **Phase 1**: local SEO — directory listings (Yelp, Bing Places,
    WeddingWire, The Knot, Thumbtack, Nextdoor, Facebook), NAP consistency,
    review-collection habit
@@ -74,8 +127,9 @@ once ready to go live.
    referral program
 
 ## Working conventions
-- Single-file HTML site (no build step) — keep it that way unless asked to
-  restructure
+- Multi-page static site, still no build step — every page is a
+  self-contained HTML file (own `<style>`/`<script>`, no shared includes).
+  Keep it that way unless asked to restructure again.
 - Don't add real testimonials/reviews as fact — current ones are clearly
   placeholder copy for the owner to replace with real reviews
 - Don't invent pricing beyond what's already set — current tiers are
@@ -83,3 +137,6 @@ once ready to go live.
   rates
 - Respect `prefers-reduced-motion` in any new animation work — the existing
   code already gates all animation behind it
+- The business intentionally doesn't publish a phone/email on the site —
+  contact is by form or Instagram DM only. Don't add visible phone/email
+  text without checking first.

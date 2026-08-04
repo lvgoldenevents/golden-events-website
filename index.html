@@ -9,6 +9,7 @@
 <meta property="og:description" content="Turning Moments Into Golden Memories. Serving the entire Las Vegas Valley.">
 <meta property="og:type" content="website">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lasvegasgoldenevents.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,27 +52,9 @@
 }
 </script>
 <!--
-  AEO NOTE: This FAQPage block is written to match how people actually
-  phrase questions to AI assistants and voice search ("who is the best
-  balloon decorator in Las Vegas" vs. a keyword like "balloon decorator
-  Las Vegas"). Keep the visible FAQ section below in sync with this —
-  answer engines cross-check that the on-page text matches the schema.
+  FAQPage schema lives on faq.html, next to the actual visible FAQ text
+  it describes. LocalBusiness above is duplicated across every page.
 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Who is the best luxury balloon decorator in Las Vegas?","acceptedAnswer":{"@type":"Answer","text":"Golden Events & Entertainment is a Las Vegas-based luxury balloon and event decor company serving the entire valley, known for custom color mockups, hotel-suite styling, and same-week availability."}},
-    {"@type":"Question","name":"How much does balloon decor cost in Las Vegas?","acceptedAnswer":{"@type":"Answer","text":"Balloon decor in Las Vegas typically starts around $250 for a single garland or arch, $650 for a full hotel-suite or milestone install, and $1,500+ for large-scale corporate or grand-opening builds. Final pricing depends on scale, balloon type, and location."}},
-    {"@type":"Question","name":"Can I get same-day balloon delivery on the Las Vegas Strip?","acceptedAnswer":{"@type":"Answer","text":"Yes, same-day and rush installs are often available depending on scale, including delivery directly to Strip hotel suites through coordination with property concierge teams."}},
-    {"@type":"Question","name":"How far in advance should I book a balloon installation in Las Vegas?","acceptedAnswer":{"@type":"Answer","text":"For weekends and Strip hotels, booking 1-2 weeks out is ideal. Rush requests with as little as 48 hours notice can often be accommodated depending on scale."}},
-    {"@type":"Question","name":"Do balloon decorators travel to hotels on the Las Vegas Strip?","acceptedAnswer":{"@type":"Answer","text":"Yes. Golden Events & Entertainment regularly coordinates directly with hotel concierge and property teams for suite installs across the Strip and Downtown Las Vegas."}},
-    {"@type":"Question","name":"What's included in a balloon decor mockup?","acceptedAnswer":{"@type":"Answer","text":"Every quote includes a free custom digital mockup in the client's chosen colors, so they see exactly what's arriving before anything is booked."}},
-    {"@type":"Question","name":"What areas of Las Vegas do you serve?","acceptedAnswer":{"@type":"Answer","text":"Golden Events & Entertainment serves the entire Las Vegas Valley, including the Strip, Downtown, Henderson, Summerlin, Spring Valley, Enterprise, North Las Vegas, and Paradise."}}
-  ]
-}
-</script>
 
 <style>
 /* ============================= TOKENS ============================= */
@@ -99,7 +82,11 @@ body{
   color:var(--cream);
   font-family:'Sora', sans-serif;
   overflow-x:hidden;
+  overflow-y:hidden;
   position:relative;
+  height:100dvh;
+  display:flex;
+  flex-direction:column;
 }
 img,svg{display:block; max-width:100%;}
 a{color:inherit; text-decoration:none;}
@@ -201,9 +188,9 @@ section{position:relative; z-index:2;}
   width:7px; height:7px; border-radius:50%; background:var(--gold);
   box-shadow:0 0 12px var(--gold);
 }
-.nav-links{display:flex; gap:30px; align-items:center;}
+.nav-links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
 .nav-links a{
-  font-size:0.84rem; letter-spacing:0.02em; color:var(--cream-dim);
+  font-size:0.79rem; letter-spacing:0.02em; color:var(--cream-dim);
   position:relative; transition:color .3s; white-space:nowrap;
 }
 .nav-links a:hover{color:var(--cream);}
@@ -242,9 +229,9 @@ section{position:relative; z-index:2;}
 .mobile-menu.open{ opacity:1; pointer-events:all; }
 .mobile-menu a{ font-family:'Fraunces',serif; font-size:1.6rem; color:var(--cream); }
 
-/* ============================= HERO ============================= */
+/* ============================= HERO (the entire homepage — no scroll) ============================= */
 .hero{
-  min-height:100svh; position:relative; display:flex; align-items:center; justify-content:center;
+  flex:1 1 auto; min-height:0; position:relative; display:flex; align-items:center; justify-content:center;
   text-align:center; overflow:hidden;
   background:
     radial-gradient(ellipse at 50% 15%, rgba(203,161,53,0.12), transparent 55%),
@@ -263,267 +250,34 @@ section{position:relative; z-index:2;}
 .hero-content{ position:relative; z-index:3; max-width:860px; padding:0 24px; }
 .hero .eyebrow{ display:inline-block; margin-bottom:22px; }
 .hero h1{
-  font-size:clamp(2.6rem, 6.4vw, 5.4rem);
-  margin-bottom:24px;
+  font-size:clamp(2rem, 5vw, 4.6rem);
+  margin-bottom:22px;
 }
 .hero h1 em{ font-style:italic; font-weight:500; }
 .hero p{
-  font-size:clamp(1rem, 1.6vw, 1.18rem);
-  color:var(--cream-dim); max-width:600px; margin:0 auto 20px;
-  line-height:1.65;
+  font-size:clamp(0.94rem, 1.4vw, 1.1rem);
+  color:var(--cream-dim); max-width:600px; margin:0 auto 18px;
+  line-height:1.6;
 }
 .hero .service-line{
-  font-size:0.82rem; letter-spacing:.04em; color:var(--gold-light); margin-bottom:34px;
+  font-size:0.8rem; letter-spacing:.04em; color:var(--gold-light); margin-bottom:30px;
 }
 .hero-ctas{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-.scroll-cue{
-  position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:10px; z-index:3;
-  color:var(--cream-dim); font-size:0.7rem; letter-spacing:0.24em; text-transform:uppercase;
-}
-.scroll-cue .line{ width:1px; height:34px; background:linear-gradient(var(--gold), transparent); animation:pulseLine 2s ease-in-out infinite; }
-@keyframes pulseLine{ 0%,100%{opacity:.3;} 50%{opacity:1;} }
 
 /* ============================= MARQUEE ============================= */
 .marquee-wrap{
+  flex:0 0 auto;
   border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  background:var(--charcoal); overflow:hidden; padding:18px 0;
+  background:var(--charcoal); overflow:hidden; padding:16px 0;
 }
 .marquee{ display:flex; width:max-content; animation:scrollX 38s linear infinite; }
 .marquee span{
   font-family:'Fraunces',serif; font-style:italic; font-weight:500;
-  font-size:1.1rem; color:var(--gold); white-space:nowrap; padding:0 26px;
+  font-size:1.05rem; color:var(--gold); white-space:nowrap; padding:0 26px;
   display:flex; align-items:center; gap:26px;
 }
 .marquee span::after{ content:'✦'; color:var(--cream-dim); font-style:normal; }
 @keyframes scrollX{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-
-/* ============================= REVEAL ============================= */
-[data-reveal]{ opacity:0; transform:translateY(34px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
-[data-reveal].in-view{ opacity:1; transform:translateY(0); }
-
-.section-head{ max-width:640px; margin-bottom:64px; }
-.section-head h2{ font-size:clamp(2rem, 4vw, 3rem); margin-top:14px; }
-.section-pad{ padding:120px 0; }
-.section-alt{ background:var(--charcoal); }
-
-/* ============================= SERVICES ============================= */
-.services-grid{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-  background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;
-}
-.service-card{
-  background:var(--charcoal); padding:44px 30px; min-height:320px;
-  display:flex; flex-direction:column; justify-content:space-between;
-  transition:background .4s var(--ease), transform .4s var(--ease);
-}
-.service-card:hover{ background:var(--charcoal-2); transform:translateY(-6px); }
-.service-card .num{ font-family:'Fraunces',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.1em; }
-.service-icon{ width:44px; height:54px; margin:20px 0; }
-.service-card h3{ font-size:1.24rem; font-weight:600; margin-bottom:12px; }
-.service-card p{ font-size:0.89rem; color:var(--cream-dim); line-height:1.65; }
-
-/* ============================= SERVICE AREA ============================= */
-.area-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-.area-card{
-  border:1px solid var(--line); border-radius:16px; padding:24px;
-  transition:border-color .35s, transform .35s var(--ease), background .35s;
-  background:var(--black);
-}
-.area-card:hover{ border-color:var(--gold); transform:translateY(-4px); background:var(--charcoal); }
-.area-card .pin{
-  width:8px; height:8px; border-radius:50%; background:var(--gold); margin-bottom:16px;
-  box-shadow:0 0 10px var(--gold);
-}
-.area-card h4{ font-size:1.02rem; font-weight:600; margin-bottom:6px; }
-.area-card p{ font-size:0.8rem; color:var(--cream-dim); }
-
-/* ============================= DESIGNER (signature) ============================= */
-.designer{
-  background:var(--charcoal); border:1px solid var(--line); border-radius:28px;
-  padding:70px 50px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
-  position:relative; overflow:hidden;
-}
-.designer-copy .eyebrow{ margin-bottom:16px; display:block; }
-.designer-copy h2{ font-size:clamp(1.7rem,3vw,2.4rem); margin-bottom:18px; }
-.designer-copy p{ color:var(--cream-dim); line-height:1.7; margin-bottom:30px; max-width:420px; }
-.swatches{ display:flex; gap:14px; flex-wrap:wrap; }
-.swatch{
-  width:42px; height:42px; border-radius:50%; border:2px solid transparent;
-  transition:transform .3s var(--ease), border-color .3s;
-  position:relative;
-}
-.swatch.active, .swatch:hover{ transform:scale(1.14); border-color:var(--cream); }
-.swatch[data-c="gold"]{ background:radial-gradient(circle at 32% 28%, #f5e3ab, #cba135 60%, #8a6a1f); }
-.swatch[data-c="emerald"]{ background:radial-gradient(circle at 32% 28%, #7fd6b3, #1c4f3f 60%, #0d281f); }
-.swatch[data-c="blush"]{ background:radial-gradient(circle at 32% 28%, #f5d3d3, #d98c8c 60%, #a35a5a); }
-.swatch[data-c="ivory"]{ background:radial-gradient(circle at 32% 28%, #ffffff, #e8ddc2 60%, #b7a878); }
-.swatch[data-c="black"]{ background:radial-gradient(circle at 32% 28%, #3a3630, #17140f 60%, #060504); }
-
-.arch-stage{ height:340px; position:relative; display:flex; align-items:flex-end; justify-content:center; }
-.arch{ position:relative; width:100%; height:100%; }
-.arch .balloon{ position:absolute; transition:background .5s var(--ease); }
-
-/* ============================= PROCESS ============================= */
-.process{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
-.process::before{
-  content:''; position:absolute; top:26px; left:6%; right:6%; height:1px; background:var(--line); z-index:0;
-}
-.process .track{
-  content:''; position:absolute; top:26px; left:6%; height:1px; width:0%; background:var(--gold); z-index:1; transition:width 1.4s var(--ease);
-}
-.process.in-view .track{ width:88%; }
-.step{ position:relative; z-index:2; padding:0 20px; text-align:left; }
-.step .num-circle{
-  width:52px; height:52px; border-radius:50%; border:1px solid var(--line);
-  background:var(--black); display:flex; align-items:center; justify-content:center;
-  font-family:'Fraunces',serif; color:var(--gold); font-size:0.95rem; margin-bottom:26px;
-  transition:border-color .4s, box-shadow .4s;
-}
-.step:hover .num-circle{ border-color:var(--gold); box-shadow:0 0 22px rgba(203,161,53,.35); }
-.step h4{ font-size:1.1rem; margin-bottom:10px; font-weight:600; }
-.step p{ font-size:0.87rem; color:var(--cream-dim); line-height:1.65; }
-
-/* ============================= PRICING ============================= */
-.pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.price-card{
-  border:1px solid var(--line); border-radius:20px; padding:40px 32px;
-  display:flex; flex-direction:column; transition:transform .4s var(--ease), border-color .4s;
-  position:relative; background:var(--black);
-}
-.price-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
-.price-card.popular{ background:var(--charcoal-2); border-color:var(--gold); }
-.price-card .badge{
-  position:absolute; top:-13px; left:32px; background:var(--gold); color:#161310;
-  font-size:0.68rem; font-weight:700; letter-spacing:.06em; padding:5px 14px; border-radius:999px;
-  text-transform:uppercase;
-}
-.price-card h3{ font-size:1.2rem; margin-bottom:6px; }
-.price-card .price{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--gold-light); margin:14px 0; }
-.price-card .price span{ font-family:'Sora',sans-serif; font-size:0.85rem; color:var(--cream-dim); }
-.price-card p.desc{ color:var(--cream-dim); font-size:0.88rem; line-height:1.6; margin-bottom:22px; }
-.price-card ul{ list-style:none; margin-bottom:30px; flex-grow:1; }
-.price-card li{ font-size:0.85rem; color:var(--cream-dim); padding:8px 0; border-top:1px solid var(--line); display:flex; gap:10px; }
-.price-card li::before{ content:'✦'; color:var(--gold); font-size:0.7rem; }
-.pricing-note{ text-align:center; color:var(--cream-dim); font-size:0.8rem; margin-top:30px; }
-
-/* ============================= GALLERY ============================= */
-.gallery{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:130px; gap:14px; }
-.tile{
-  border-radius:16px; position:relative; overflow:hidden; display:flex; align-items:flex-end;
-  padding:18px; transition:transform .5s var(--ease); border:1px solid var(--line);
-}
-.tile:hover{ transform:scale(1.02); }
-.tile span{ font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.85); position:relative; z-index:2;}
-.tile-1{ grid-column:span 2; grid-row:span 2; background:linear-gradient(160deg,#8a6a1f,#0b0a08); }
-.tile-2{ grid-row:span 1; background:linear-gradient(160deg,#1c4f3f,#0b0a08); }
-.tile-3{ grid-row:span 1; background:linear-gradient(160deg,#a35a5a,#0b0a08); }
-.tile-4{ grid-row:span 2; background:linear-gradient(200deg,#3a3630,#0b0a08); }
-.tile-5{ grid-column:span 2; grid-row:span 1; background:linear-gradient(160deg,#cba135,#0b0a08); }
-.tile-6{ grid-row:span 1; background:linear-gradient(160deg,#1c4f3f,#3a3630); }
-
-/* ============================= WIDGET SLOTS (Reviews / Instagram) ============================= */
-.widget-slot{
-  border:1px dashed var(--line); border-radius:20px; padding:44px;
-  text-align:center; color:var(--cream-dim); font-size:0.85rem; line-height:1.7;
-  background:rgba(203,161,53,0.03); margin-bottom:40px;
-}
-.widget-slot code{
-  display:inline-block; background:var(--charcoal); border:1px solid var(--line);
-  padding:2px 8px; border-radius:6px; color:var(--gold-light); font-size:0.78rem;
-}
-/* Free, no-subscription social embeds (Instagram/TikTok's own official
-   embed codes) in place of a paid feed-widget service. */
-.social-embed-grid{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px; margin-bottom:24px; align-items:start;
-}
-.social-embed-slot{
-  border:1px dashed var(--line); border-radius:20px; overflow:hidden;
-  background:rgba(203,161,53,0.03); min-height:340px;
-  display:flex; align-items:center; justify-content:center;
-  text-align:center; color:var(--cream-dim); font-size:0.8rem; line-height:1.7; padding:24px;
-}
-.social-embed-slot:has(iframe), .social-embed-slot:has(blockquote){
-  border-style:solid; background:none; padding:0; min-height:0;
-}
-.testimonials{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-.t-card{
-  background:var(--charcoal); border:1px solid var(--line); border-radius:20px; padding:36px;
-  transition:transform .4s var(--ease), border-color .4s;
-}
-.t-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
-.t-card .stars{ color:var(--gold); letter-spacing:3px; margin-bottom:18px; font-size:.9rem; }
-.t-card p{ font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; line-height:1.6; margin-bottom:22px; }
-.t-card .who{ font-size:0.8rem; color:var(--cream-dim); letter-spacing:.03em; }
-
-.ig-strip{
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;
-  background:var(--emerald); border-radius:24px; padding:46px 54px; margin-top:40px;
-}
-.ig-strip .stat{ font-family:'Fraunces',serif; font-size:2.6rem; color:var(--gold-light); }
-.ig-strip p{ color:#dce9e2; font-size:0.95rem; margin-top:4px;}
-.ig-copy{ max-width:420px; }
-.ig-copy h3{ font-size:1.5rem; color:var(--cream); margin-bottom:8px; }
-
-/* ============================= FAQ ============================= */
-.faq-list{ max-width:820px; }
-.faq-item{ border-bottom:1px solid var(--line); }
-.faq-q{
-  width:100%; display:flex; justify-content:space-between; align-items:center;
-  padding:26px 4px; text-align:left; font-family:'Fraunces',serif; font-size:1.08rem; font-weight:500;
-}
-.faq-q .plus{ font-size:1.3rem; color:var(--gold); transition:transform .35s var(--ease); flex-shrink:0; margin-left:20px; }
-.faq-item.open .faq-q .plus{ transform:rotate(45deg); }
-.faq-a{ max-height:0; overflow:hidden; transition:max-height .45s var(--ease); }
-.faq-a p{ padding:0 4px 26px; color:var(--cream-dim); font-size:0.92rem; line-height:1.7; max-width:640px; }
-
-/* ============================= BOOKING ============================= */
-.booking-panel{
-  display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start;
-  border:1px solid var(--line); border-radius:24px; padding:54px; background:var(--charcoal);
-}
-.booking-copy h2{ font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:16px; }
-.booking-copy p{ color:var(--cream-dim); line-height:1.7; margin-bottom:26px; max-width:420px; }
-.booking-embed{
-  border:1px dashed var(--line); border-radius:16px; min-height:340px;
-  display:flex; align-items:center; justify-content:center; text-align:center;
-  color:var(--cream-dim); font-size:0.85rem; padding:30px; line-height:1.7;
-}
-
-/* ============================= FOOTER / CONTACT ============================= */
-.footer-cta{
-  background:linear-gradient(120deg, #241c0c, #0b0a08 60%);
-  border-top:1px solid var(--line); padding:120px 0 60px; text-align:center;
-}
-.footer-cta h2{ font-size:clamp(2.2rem,5vw,4rem); margin-bottom:22px; }
-.footer-cta > .container > p{ color:var(--cream-dim); max-width:480px; margin:0 auto 40px; line-height:1.7;}
-.footer-cta-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:70px; }
-
-.contact-form{
-  max-width:640px; margin:0 auto; text-align:left; display:grid; grid-template-columns:1fr 1fr; gap:18px;
-}
-.contact-form .full{ grid-column:1 / -1; }
-.contact-form label{ font-size:0.76rem; letter-spacing:.05em; text-transform:uppercase; color:var(--cream-dim); display:block; margin-bottom:8px; }
-.contact-form input, .contact-form select, .contact-form textarea{
-  width:100%; background:var(--black); border:1px solid var(--line); border-radius:10px;
-  padding:13px 16px; color:var(--cream); font-family:'Sora',sans-serif; font-size:0.9rem;
-  transition:border-color .3s;
-}
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus{
-  outline:none; border-color:var(--gold);
-}
-.contact-form textarea{ resize:vertical; min-height:100px; }
-.contact-form button{ margin-top:6px; }
-
-.footer-links{
-  display:flex; justify-content:center; gap:36px; margin-top:90px; flex-wrap:wrap;
-  border-top:1px solid var(--line); padding-top:36px;
-}
-.footer-links a{ font-size:0.82rem; color:var(--cream-dim); transition:color .3s; }
-.footer-links a:hover{ color:var(--gold); }
-.footer-areas{ font-size:0.75rem; color:#7a7364; margin-top:22px; line-height:1.8; max-width:700px; margin-left:auto; margin-right:auto; }
-.footer-bottom{ text-align:center; margin-top:26px; font-size:0.75rem; color:#7a7364; letter-spacing:.03em; }
 
 /* ============================= ENTRANCE ============================= */
 body.entrance-lock{ overflow:hidden; height:100%; }
@@ -586,20 +340,18 @@ body.entrance-lock{ overflow:hidden; height:100%; }
 }
 
 /* ============================= RESPONSIVE ============================= */
-@media (max-width: 980px){
-  .services-grid{ grid-template-columns:repeat(2,1fr); }
-  .area-grid{ grid-template-columns:repeat(2,1fr); }
-  .designer{ grid-template-columns:1fr; padding:44px 26px; }
-  .process{ grid-template-columns:repeat(2,1fr); gap:40px 0; }
-  .process::before, .process .track{ display:none; }
-  .gallery{ grid-template-columns:repeat(2,1fr); }
-  .testimonials{ grid-template-columns:1fr; }
-  .pricing-grid{ grid-template-columns:1fr; }
-  .booking-panel{ grid-template-columns:1fr; padding:36px 24px; }
-  .contact-form{ grid-template-columns:1fr; }
+@media (max-width: 1200px){
+  /* wider than the usual 980px breakpoint — 9 nav items need more room
+     before the hamburger than 6 did, otherwise it wraps awkwardly. */
   .nav-links{ display:none; }
   .menu-toggle{ display:flex; }
-  .ig-strip{ flex-direction:column; align-items:flex-start; }
+}
+@media (max-height: 620px){
+  /* short viewports (landscape phones): let content shrink rather than
+     clip, without ever introducing page scroll */
+  .hero h1{ font-size:clamp(1.6rem, 4.4vw, 3rem); margin-bottom:14px; }
+  .hero p{ margin-bottom:10px; }
+  .hero .service-line{ margin-bottom:16px; }
 }
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
@@ -625,30 +377,37 @@ body.entrance-lock{ overflow:hidden; height:100%; }
 <nav class="nav" id="nav">
   <div class="logo"><span class="dot"></span>Golden Events</div>
   <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#areas">Areas</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#faq">FAQ</a>
+    <a href="/services">Services</a>
+    <a href="/areas">Areas</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/reviews">Reviews</a>
+    <a href="/faq">FAQ</a>
+    <a href="/design-studio">Design Studio</a>
+    <a href="/how-it-works">How It Works</a>
+    <a href="/book">Book a Consult</a>
   </div>
   <div class="nav-right">
-    <a href="#contact" class="btn btn-gold">Get a Quote</a>
+    <a href="/book" class="btn btn-gold">Get a Quote</a>
     <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services">Services</a>
-  <a href="#areas">Areas</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact">Contact</a>
+  <a href="/services">Services</a>
+  <a href="/areas">Areas</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/gallery">Gallery</a>
+  <a href="/reviews">Reviews</a>
+  <a href="/faq">FAQ</a>
+  <a href="/design-studio">Design Studio</a>
+  <a href="/how-it-works">How It Works</a>
+  <a href="/book">Book a Consult</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO — the entire homepage. No other content below it: this page is
+     intentionally a single, non-scrolling screen. Everything else lives
+     on its own page, reachable from the nav above. -->
 <header class="hero">
   <div class="balloon-field" id="balloonField"></div>
   <div class="hero-content">
@@ -657,462 +416,32 @@ body.entrance-lock{ overflow:hidden; height:100%; }
     <p>Custom balloon artistry and hotel-suite styling for the birthdays, proposals, grand openings and Vegas nights that deserve more than a store-bought bouquet.</p>
     <div class="service-line">Proudly serving the entire Las Vegas Valley — Strip · Downtown · Henderson · Summerlin · North Las Vegas</div>
     <div class="hero-ctas">
-      <a href="#booking" class="btn btn-gold">Book Your Consultation</a>
-      <a href="#gallery" class="btn btn-outline">See Our Work</a>
+      <a href="/book" class="btn btn-gold">Book Your Consultation</a>
+      <a href="/gallery" class="btn btn-outline">See Our Work</a>
     </div>
   </div>
-  <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
 </header>
 
 <!--
   AEO: a short, literal answer-first summary. Plain sentences stating
   who/what/where in one place make it easy for AI answer engines (and
   screen readers) to extract a clean, quotable summary of the business —
-  keep this in sync any time your services or area list changes.
+  keep this in sync any time your services or area list changes. This is
+  visually hidden (1x1px, clipped) so it doesn't add any visible height.
 -->
 <p style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">
-Golden Events &amp; Entertainment is a luxury balloon and event decor company based in Las Vegas, Nevada, offering balloon garlands and arches, hotel and suite styling, grand opening and corporate decor, and custom balloon installations. Packages start around $250. The company serves the entire Las Vegas Valley, including the Strip, Downtown, Henderson, Summerlin, Spring Valley, Enterprise, North Las Vegas, and Paradise.
+Golden Events &amp; Entertainment is a luxury balloon and event decor company based in Las Vegas, Nevada, offering balloon garlands and arches, hotel and suite styling, grand opening and corporate decor, and custom balloon installations. Packages start around $250. The company serves the entire Las Vegas Valley, including the Strip, Downtown, Henderson, Summerlin, Spring Valley, Enterprise, North Las Vegas, and Paradise. Explore Services, Pricing, our Gallery, Reviews, FAQ, the Design Studio, How It Works, and Booking from the navigation menu.
 </p>
 
-<!-- MARQUEE -->
+<!-- MARQUEE — sits at the bottom of this single-screen homepage (the
+     body is a flex column with the hero set to flex:1, so this never
+     forces a page scroll, it just claims the space the hero doesn't). -->
 <div class="marquee-wrap">
   <div class="marquee" id="marquee">
     <span><span>The Strip</span><span>Downtown</span><span>Henderson</span><span>Summerlin</span><span>North Las Vegas</span><span>Spring Valley</span><span>Enterprise</span><span>Paradise</span></span>
     <span><span>The Strip</span><span>Downtown</span><span>Henderson</span><span>Summerlin</span><span>North Las Vegas</span><span>Spring Valley</span><span>Enterprise</span><span>Paradise</span></span>
   </div>
 </div>
-
-<!-- SERVICES -->
-<section class="section-pad container" id="services">
-  <div class="section-head" data-reveal>
-    <span class="eyebrow">What We Do</span>
-    <h2>Four ways we make an entrance</h2>
-  </div>
-  <div class="services-grid" data-reveal>
-    <div class="service-card">
-      <span class="num">01</span>
-      <svg class="service-icon" viewBox="0 0 40 56" fill="none"><ellipse cx="20" cy="22" rx="18" ry="21" fill="url(#g1)"/><path d="M20 43 L20 56" stroke="#cba135" stroke-width="1"/><defs><radialGradient id="g1" cx="0.35" cy="0.3"><stop offset="0%" stop-color="#f5e3ab"/><stop offset="60%" stop-color="#cba135"/><stop offset="100%" stop-color="#8a6a1f"/></radialGradient></defs></svg>
-      <h3>Balloon Garlands &amp; Arches</h3>
-      <p>Organic, oversized, unapologetically photogenic. Custom color stories delivered and installed same-day.</p>
-    </div>
-    <div class="service-card">
-      <span class="num">02</span>
-      <svg class="service-icon" viewBox="0 0 40 56" fill="none"><ellipse cx="20" cy="22" rx="18" ry="21" fill="url(#g2)"/><path d="M20 43 L20 56" stroke="#3f8f70" stroke-width="1"/><defs><radialGradient id="g2" cx="0.35" cy="0.3"><stop offset="0%" stop-color="#7fd6b3"/><stop offset="60%" stop-color="#1c4f3f"/><stop offset="100%" stop-color="#0d281f"/></radialGradient></defs></svg>
-      <h3>Hotel &amp; Suite Styling</h3>
-      <p>Turn any Vegas hotel room into an entrance. We coordinate directly with concierge for seamless setup before you arrive.</p>
-    </div>
-    <div class="service-card">
-      <span class="num">03</span>
-      <svg class="service-icon" viewBox="0 0 40 56" fill="none"><ellipse cx="20" cy="22" rx="18" ry="21" fill="url(#g3)"/><path d="M20 43 L20 56" stroke="#d98c8c" stroke-width="1"/><defs><radialGradient id="g3" cx="0.35" cy="0.3"><stop offset="0%" stop-color="#f5d3d3"/><stop offset="60%" stop-color="#d98c8c"/><stop offset="100%" stop-color="#a35a5a"/></radialGradient></defs></svg>
-      <h3>Grand Openings &amp; Corporate</h3>
-      <p>Storefronts, launches and activations dressed to stop foot traffic — built to photograph from every angle.</p>
-    </div>
-    <div class="service-card">
-      <span class="num">04</span>
-      <svg class="service-icon" viewBox="0 0 40 56" fill="none"><ellipse cx="20" cy="22" rx="18" ry="21" fill="url(#g4)"/><path d="M20 43 L20 56" stroke="#e8ddc2" stroke-width="1"/><defs><radialGradient id="g4" cx="0.35" cy="0.3"><stop offset="0%" stop-color="#ffffff"/><stop offset="60%" stop-color="#e8ddc2"/><stop offset="100%" stop-color="#b7a878"/></radialGradient></defs></svg>
-      <h3>Custom Installations</h3>
-      <p>Sculptural columns, ceiling clouds, numbers and one-of-a-kind builds for moments nobody's seen before.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICE AREA -->
-<section class="section-pad section-alt" id="areas">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Service Area</span>
-      <h2>We show up anywhere in the valley</h2>
-    </div>
-    <div class="area-grid" data-reveal>
-      <div class="area-card"><div class="pin"></div><h4>The Strip</h4><p>Hotel suites &amp; resort styling</p></div>
-      <div class="area-card"><div class="pin"></div><h4>Downtown &amp; Fremont</h4><p>Grand openings &amp; lofts</p></div>
-      <div class="area-card"><div class="pin"></div><h4>Henderson</h4><p>Family celebrations &amp; showers</p></div>
-      <div class="area-card"><div class="pin"></div><h4>Summerlin</h4><p>Milestone birthdays &amp; galas</p></div>
-      <div class="area-card"><div class="pin"></div><h4>Spring Valley</h4><p>Backyard &amp; home installs</p></div>
-      <div class="area-card"><div class="pin"></div><h4>Enterprise</h4><p>Corporate &amp; office launches</p></div>
-      <div class="area-card"><div class="pin"></div><h4>North Las Vegas</h4><p>Community &amp; large-scale events</p></div>
-      <div class="area-card"><div class="pin"></div><h4>Paradise &amp; Winchester</h4><p>Condos, suites &amp; private venues</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- DESIGN STUDIO -->
-<section class="section-pad container" id="designer-section">
-  <div class="designer" data-reveal>
-    <div class="designer-copy">
-      <span class="eyebrow">Design Studio</span>
-      <h2>Pick a palette. Watch it come to life.</h2>
-      <p>Every install starts as a custom digital mockup in your colors — so you know exactly what's arriving before we book a single balloon. Try it yourself.</p>
-      <div class="swatches" id="swatches">
-        <button class="swatch active" data-c="gold" aria-label="Gold palette"></button>
-        <button class="swatch" data-c="emerald" aria-label="Emerald palette"></button>
-        <button class="swatch" data-c="blush" aria-label="Blush palette"></button>
-        <button class="swatch" data-c="ivory" aria-label="Ivory palette"></button>
-        <button class="swatch" data-c="black" aria-label="Black palette"></button>
-      </div>
-    </div>
-    <div class="arch-stage">
-      <div class="arch" id="arch"></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="section-pad container" id="process-section">
-  <div class="section-head" data-reveal>
-    <span class="eyebrow">How It Works</span>
-    <h2>From DM to done, in four steps</h2>
-  </div>
-  <div class="process" data-reveal id="process">
-    <div class="track"></div>
-    <div class="step">
-      <div class="num-circle">01</div>
-      <h4>Consult</h4>
-      <p>Tell us the date, the vibe, the guest list. We'll ask the questions you didn't know you needed answered.</p>
-    </div>
-    <div class="step">
-      <div class="num-circle">02</div>
-      <h4>Design Mockup</h4>
-      <p>A custom digital mockup in your colors, so you see it before we book a single balloon.</p>
-    </div>
-    <div class="step">
-      <div class="num-circle">03</div>
-      <h4>Install</h4>
-      <p>Our team arrives early, works quickly and quietly, and leaves the space camera-ready.</p>
-    </div>
-    <div class="step">
-      <div class="num-circle">04</div>
-      <h4>Celebrate</h4>
-      <p>You show up to a room that already feels like the party started without you.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="section-pad section-alt" id="pricing">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Investment</span>
-      <h2>Packages built to fit the moment</h2>
-    </div>
-    <div class="pricing-grid" data-reveal>
-      <div class="price-card">
-        <h3>Sweet Start</h3>
-        <div class="price">$250<span> starting</span></div>
-        <p class="desc">A single garland or arch — perfect for birthdays, gender reveals, and welcome-home moments.</p>
-        <ul>
-          <li>Up to 6ft garland or arch</li>
-          <li>2 color palette</li>
-          <li>Setup &amp; teardown included</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline">Get This Package</a>
-      </div>
-      <div class="price-card popular">
-        <span class="badge">Most Booked</span>
-        <h3>Signature Install</h3>
-        <div class="price">$650<span> starting</span></div>
-        <p class="desc">Full room takeover — hotel suites, proposals, and milestone birthdays with a custom mockup.</p>
-        <ul>
-          <li>Free custom digital mockup</li>
-          <li>Full-room or suite styling</li>
-          <li>Hotel/property coordination</li>
-          <li>Same-day install available</li>
-        </ul>
-        <a href="#contact" class="btn btn-gold">Get This Package</a>
-      </div>
-      <div class="price-card">
-        <h3>Grand Occasion</h3>
-        <div class="price">$1,500<span> starting</span></div>
-        <p class="desc">Corporate launches, grand openings, and large-scale builds with sculptural columns and ceiling work.</p>
-        <ul>
-          <li>Sculptural &amp; ceiling installations</li>
-          <li>On-site design team</li>
-          <li>Brand-matched color systems</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline">Get This Package</a>
-      </div>
-    </div>
-    <p class="pricing-note">*Final pricing depends on scale, balloon type, and location — every quote starts with a free consult.</p>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="section-pad container" id="gallery">
-  <div class="section-head" data-reveal>
-    <span class="eyebrow">Recent Work</span>
-    <h2>A few of our favorite installs</h2>
-  </div>
-  <div class="gallery" data-reveal>
-    <div class="tile tile-1"><span>Suite Proposal · The Strip</span></div>
-    <div class="tile tile-2"><span>Grand Opening · Downtown</span></div>
-    <div class="tile tile-3"><span>Baby Shower · Summerlin</span></div>
-    <div class="tile tile-4"><span>21st Birthday · The Strip</span></div>
-    <div class="tile tile-5"><span>Corporate Launch · Henderson</span></div>
-    <div class="tile tile-6"><span>Anniversary Suite · Henderson</span></div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="section-pad section-alt" id="reviews">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Google Reviews</span>
-      <h2>What Las Vegas is saying</h2>
-    </div>
-    <div data-reveal>
-      <!-- 
-        LIVE GOOGLE REVIEWS GO HERE.
-        Once you've claimed your Google Business Profile, connect it through
-        a widget tool (EmbedSocial, Taggbox, or OpenWidget) and paste the
-        generated embed <script>/<div> in place of this placeholder block.
-      -->
-      <div class="widget-slot">
-        Your live Google Reviews widget renders here once connected —<br>
-        replace this block with your embed code from <code>EmbedSocial</code>, <code>Taggbox</code>, or <code>OpenWidget</code>.
-      </div>
-      <div class="testimonials">
-        <div class="t-card">
-          <div class="stars">★★★★★</div>
-          <p>"We opened the suite door and just stopped talking for a second. Exactly the mockup, down to the ribbon color."</p>
-          <div class="who">— Bride, Suite Proposal</div>
-        </div>
-        <div class="t-card">
-          <div class="stars">★★★★★</div>
-          <p>"They coordinated with our building manager directly. I didn't have to think about a single logistic."</p>
-          <div class="who">— Owner, Grand Opening</div>
-        </div>
-        <div class="t-card">
-          <div class="stars">★★★★★</div>
-          <p>"Booked four days out for a birthday and it still looked like it took a month to plan."</p>
-          <div class="who">— Guest, Birthday Install</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INSTAGRAM -->
-<section class="section-pad container">
-  <div class="section-head" data-reveal>
-    <span class="eyebrow">Follow Along</span>
-    <h2>Fresh off the install</h2>
-  </div>
-  <div data-reveal>
-    <!--
-      FREE SOCIAL EMBEDS — no paid widget subscription (SnapWidget/Taggbox/
-      EmbedSocial all charge monthly for a "live feed"). Instagram and
-      TikTok each give you their own official embed code for free, per
-      post, straight from the app/site — no developer account, no API
-      key, no recurring cost. It's manual (you refresh which posts are
-      featured every so often instead of it auto-updating), which is the
-      trade-off for $0/month.
-
-      HOW TO FILL EACH SLOT BELOW:
-      Instagram: open the post in a browser → click the "···" menu on the
-      post → "Embed" → "Copy Embed Code" → paste the ENTIRE thing
-      (Instagram gives you a <blockquote> plus a <script> tag) in place
-      of one of the placeholder <div class="social-embed-slot"> blocks.
-      TikTok: open the video on tiktok.com → the "Share" arrow icon →
-      "Embed" → copy the code it gives you → paste it the same way.
-      It's fine if the pasted code includes its own <script src="...embed.js">
-      tag even though one is already included near the end of this file —
-      duplicates are harmless, both platforms' scripts handle that.
-
-      Pick 4-6 of your best recent posts/videos across both platforms and
-      mix them in the grid below in whatever order you like.
-    -->
-    <div class="social-embed-grid" data-reveal>
-      <div class="social-embed-slot">
-        <!-- Happy 40th birthday — pink balloon install with number balloons -->
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@lvgoldenevents/video/7668840344217193759" data-video-id="7668840344217193759" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@lvgoldenevents" href="https://www.tiktok.com/@lvgoldenevents?refer=embed">@lvgoldenevents</a> Happy 40th birthday!💕🎉 <a title="lasvegasballoons" target="_blank" href="https://www.tiktok.com/tag/lasvegasballoons?refer=embed">#lasvegasballoons</a> <a title="balloonartist" target="_blank" href="https://www.tiktok.com/tag/balloonartist?refer=embed">#balloonartist</a> <a title="hoteldecoration" target="_blank" href="https://www.tiktok.com/tag/hoteldecoration?refer=embed">#hoteldecoration</a> <a title="vegastiktok" target="_blank" href="https://www.tiktok.com/tag/vegastiktok?refer=embed">#vegastiktok</a> <a title="decoratewithme" target="_blank" href="https://www.tiktok.com/tag/decoratewithme?refer=embed">#decoratewithme</a> <a target="_blank" title="♬ THAT GIRL - Tyla" href="https://www.tiktok.com/music/THAT-GIRL-7664711002852100112?refer=embed">♬ THAT GIRL - Tyla</a> </section> </blockquote>
-      </div>
-      <div class="social-embed-slot">
-        <!-- Birthday hotel setup, happy 27th birthday — pink/gold balloon install -->
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@lvgoldenevents/video/7670095100810218782" data-video-id="7670095100810218782" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@lvgoldenevents" href="https://www.tiktok.com/@lvgoldenevents?refer=embed">@lvgoldenevents</a> Birthday hotel setup, happy 27th birthday!🎉 <a title="hotelroomdecor" target="_blank" href="https://www.tiktok.com/tag/hotelroomdecor?refer=embed">#hotelroomdecor</a> <a title="lasvegashotelroomdecor" target="_blank" href="https://www.tiktok.com/tag/lasvegashotelroomdecor?refer=embed">#lasvegashotelroomdecor</a> <a title="balloonartist" target="_blank" href="https://www.tiktok.com/tag/balloonartist?refer=embed">#balloonartist</a> <a title="balloondecor" target="_blank" href="https://www.tiktok.com/tag/balloondecor?refer=embed">#balloondecor</a> <a title="decoratewithme" target="_blank" href="https://www.tiktok.com/tag/decoratewithme?refer=embed">#decoratewithme</a> <a target="_blank" title="♬ petal - Ariana Grande" href="https://www.tiktok.com/music/petal-7668507565575964673?refer=embed">♬ petal - Ariana Grande</a> </section> </blockquote>
-      </div>
-      <div class="social-embed-slot">
-        <!-- Lucky in Love — bachelorette-themed balloon install (dice/diamond decor) -->
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@lvgoldenevents/video/7668880472797170975" data-video-id="7668880472797170975" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@lvgoldenevents" href="https://www.tiktok.com/@lvgoldenevents?refer=embed">@lvgoldenevents</a> The bride to be is lucky &#38; in LOVE 🍾🎰🎈❤️‍🔥 <a title="luckyinlove" target="_blank" href="https://www.tiktok.com/tag/luckyinlove?refer=embed">#luckyinlove</a> <a title="vegasbacheloretteparty" target="_blank" href="https://www.tiktok.com/tag/vegasbacheloretteparty?refer=embed">#vegasbacheloretteparty</a> <a title="vegastiktok" target="_blank" href="https://www.tiktok.com/tag/vegastiktok?refer=embed">#vegastiktok</a> <a title="balloonartist" target="_blank" href="https://www.tiktok.com/tag/balloonartist?refer=embed">#balloonartist</a> <a title="hoteldecoration" target="_blank" href="https://www.tiktok.com/tag/hoteldecoration?refer=embed">#hoteldecoration</a> <a target="_blank" title="♬ original sound - 𝐧𝐢𝐧𝐢 ☾." href="https://www.tiktok.com/music/original-sound-7562302446677101334?refer=embed">♬ original sound - 𝐧𝐢𝐧𝐢 ☾.</a> </section> </blockquote>
-      </div>
-      <!-- 4th slot reserved for an Instagram post — Instagram only exposes its
-           "Embed" option to logged-in viewers, so grab one manually (open the
-           post → ··· menu → Embed → Copy Embed Code while signed in) and add
-           a <div class="social-embed-slot"> here with it, same pattern as above. -->
-    </div>
-    <div class="ig-strip">
-      <div class="ig-copy">
-        <h3>@lasvegasgoldenevents</h3>
-        <p>Follow along for install reveals, mockup-to-reality transformations, and same-week availability drops.</p>
-      </div>
-      <div style="text-align:right;">
-        <div class="stat">3,401</div>
-        <p>followers &amp; counting</p>
-      </div>
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank" class="btn btn-gold">Follow on Instagram</a>
-        <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank" class="btn btn-outline">Follow on TikTok</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section-pad section-alt" id="faq">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">Good to Know</span>
-      <h2>Frequently asked questions</h2>
-    </div>
-    <div class="faq-list" data-reveal id="faqList">
-      <div class="faq-item open">
-        <button class="faq-q"><span>Who is the best luxury balloon decorator in Las Vegas?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>Golden Events &amp; Entertainment is a Las Vegas-based luxury balloon and event decor company serving the entire valley, known for custom color mockups, hotel-suite styling, and same-week availability.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>How much does balloon decor cost in Las Vegas?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>Balloon decor typically starts around $250 for a single garland or arch, $650 for a full hotel-suite or milestone install, and $1,500+ for large-scale corporate or grand-opening builds. Final pricing depends on scale, balloon type, and location.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>Can I get same-day balloon delivery on the Las Vegas Strip?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>Often, yes — same-day and rush installs are available depending on scale, including delivery directly to Strip hotel suites through coordination with property concierge teams.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>How far in advance should I book?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>For weekends and Strip hotels, 1-2 weeks out is ideal. We can often accommodate rush requests with as little as 48 hours notice depending on scale.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>Do you travel to hotels on the Las Vegas Strip?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>Yes. We regularly coordinate directly with hotel concierge and property teams for suite installs across the Strip and Downtown.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>What's included in a mockup?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>Every quote includes a free custom digital mockup in your chosen colors, so you see exactly what's arriving before anything is booked.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>Can I customize colors to match my venue?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>Always. Send us your venue photos or brand colors and we'll build a palette to match, down to the ribbon.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>What areas of Las Vegas do you serve?</span><span class="plus">+</span></button>
-        <div class="faq-a"><p>The entire valley — the Strip, Downtown, Henderson, Summerlin, Spring Valley, Enterprise, North Las Vegas, and Paradise.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section class="section-pad container" id="booking">
-  <div class="booking-panel" data-reveal>
-    <div class="booking-copy">
-      <span class="eyebrow">Schedule</span>
-      <h2>Book a free consult</h2>
-      <p>Pick a time that works and we'll walk through your date, vibe, and budget — no pressure, no obligation. Prefer to chat first? DM us on Instagram instead.</p>
-      <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank" class="btn btn-outline">DM on Instagram Instead</a>
-    </div>
-    <!--
-      LIVE SCHEDULER GOES HERE.
-      Create a free Calendly (or Acuity) account, then replace the
-      data-url below with your real scheduling link and uncomment the
-      Calendly script at the bottom of the page.
-    -->
-    <div class="booking-embed" id="calendlyEmbed" data-url="https://calendly.com/your-handle/consult">
-      Your live scheduling calendar renders here once connected —<br>
-      swap in your real Calendly (or Acuity) link.
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER / CONTACT -->
-<footer class="footer-cta" id="contact">
-  <div class="container">
-    <span class="eyebrow">Get In Touch</span>
-    <h2 style="margin-top:18px;">Let's make it <span class="gold-text">golden.</span></h2>
-    <p>DM us on Instagram or send your event details below — we'll follow up with a custom mockup, usually same day.</p>
-    <div class="footer-cta-actions">
-      <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank" class="btn btn-gold">DM on Instagram</a>
-      <!-- STRIPE: replace with your real Payment Link from the Stripe Dashboard -->
-      <a href="https://buy.stripe.com/your-payment-link" target="_blank" class="btn btn-outline">Pay a Deposit</a>
-    </div>
-
-    <!--
-      CONTACT FORM: handled natively by Netlify Forms — no third-party
-      service, no backend code. Netlify's build bot detects this form
-      (because of the "data-netlify" attribute) at deploy time and starts
-      routing submissions to the Forms tab in your Netlify dashboard.
-
-      ONE-TIME SETUP (do this in the Netlify dashboard, not in code):
-      Site settings → Forms → Form notifications → Add notification →
-      "Email notification" → lvgoldenevents@gmail.com. That's it —
-      submissions land in your inbox from then on.
-    -->
-    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
-      <input type="hidden" name="form-name" value="contact">
-      <!-- Honeypot: real visitors never see or fill this; Netlify silently
-           discards any submission where it's filled in, so bots that
-           blindly fill every field get caught for free. -->
-      <p style="position:absolute; left:-9999px;" aria-hidden="true">
-        <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-      </p>
-      <div>
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required>
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
-      </div>
-      <div>
-        <label for="date">Event Date</label>
-        <input id="date" name="event_date" type="date">
-      </div>
-      <div>
-        <label for="type">Event Type</label>
-        <select id="type" name="event_type">
-          <option>Birthday</option>
-          <option>Hotel Suite / Proposal</option>
-          <option>Baby Shower</option>
-          <option>Grand Opening / Corporate</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="full">
-        <label for="message">Tell us about your event</label>
-        <textarea id="message" name="message" placeholder="Vibe, colors, guest count, location..."></textarea>
-      </div>
-      <div class="full">
-        <button type="submit" class="btn btn-gold">Send Details</button>
-        <p id="contactFormStatus" role="status" style="margin-top:14px; display:none;"></p>
-      </div>
-    </form>
-
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#faq">FAQ</a>
-      <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank">TikTok</a>
-    </div>
-    <div class="footer-areas">Serving the entire Las Vegas Valley — The Strip · Downtown &amp; Fremont · Henderson · Summerlin · Spring Valley · Enterprise · North Las Vegas · Paradise &amp; Winchester</div>
-    <div class="footer-bottom">© Golden Events &amp; Entertainment — Turning Moments Into Golden Memories</div>
-  </div>
-</footer>
-
-<!--
-  Calendly widget script — uncomment once you've added your real
-  scheduling link in the #calendlyEmbed data-url attribute above.
-
-  <script src="https://assets.calendly.com/assets/external/widget.js"></script>
--->
-
-<!--
-  Official, free embed scripts for the "Fresh off the install" section
-  above (Instagram + TikTok's own embed codes, not a paid feed widget).
-  These are safe to include even before any real posts are pasted in —
-  they just have nothing to process until slots are filled.
--->
-<script async src="//www.instagram.com/embed.js"></script>
-<script async src="https://www.tiktok.com/embed.js"></script>
 
 <script>
 // ---------- Entrance curtain reveal ----------
@@ -1144,6 +473,9 @@ menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
 // ---------- Nav scroll state ----------
+// The homepage itself never scrolls, but this class is what gives the
+// nav its solid background — keep it driven by scroll position so the
+// exact same nav markup/behavior works identically on every other page.
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
@@ -1188,92 +520,6 @@ window.addEventListener('mousemove', (e) => {
     setTimeout(() => d.remove(), 1200);
   }
 });
-
-// ---------- Scroll reveal ----------
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('in-view'); });
-}, {threshold:0.15});
-document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
-
-const processEl = document.getElementById('process');
-const procIo = new IntersectionObserver((entries) => {
-  entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('in-view'); });
-}, {threshold:0.3});
-procIo.observe(processEl);
-
-// ---------- Interactive arch designer ----------
-const arch = document.getElementById('arch');
-const archCount = 15;
-const archBalloons = [];
-for(let i=0;i<archCount;i++){
-  const t = i/(archCount-1);
-  const bx = t*100;
-  const by = Math.sin(t*Math.PI) * 100;
-  const size = 34 + Math.sin(t*Math.PI)*20;
-  const b = document.createElement('div');
-  b.className = 'balloon gold';
-  b.style.width = size+'px';
-  b.style.height = (size*1.15)+'px';
-  b.style.left = `calc(${bx}% - ${size/2}px)`;
-  b.style.bottom = by+'px';
-  arch.appendChild(b);
-  archBalloons.push(b);
-}
-document.getElementById('swatches').addEventListener('click', (e) => {
-  const btn = e.target.closest('.swatch');
-  if(!btn) return;
-  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
-  btn.classList.add('active');
-  const c = btn.dataset.c;
-  archBalloons.forEach((b, i) => {
-    b.className = 'balloon ' + c;
-    if(i % 4 === 0 && c !== 'ivory') b.classList.add('ivory');
-  });
-});
-
-// ---------- FAQ accordion ----------
-document.querySelectorAll('.faq-item').forEach(item => {
-  const q = item.querySelector('.faq-q');
-  const a = item.querySelector('.faq-a');
-  if(item.classList.contains('open')) a.style.maxHeight = a.scrollHeight + 'px';
-  q.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-a').style.maxHeight = 0;
-    });
-    if(!isOpen){
-      item.classList.add('open');
-      a.style.maxHeight = a.scrollHeight + 'px';
-    }
-  });
-});
-
-// ---------- Contact form: submit to Netlify Forms without leaving the page ----------
-(function(){
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('contactFormStatus');
-  if(!form || !status) return;
-  const encode = (data) => new URLSearchParams(data).toString();
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(data)
-    }).then(() => {
-      form.reset();
-      status.textContent = "Thanks — we've got your details and will follow up shortly.";
-      status.style.color = 'var(--gold, #c9a44c)';
-      status.style.display = 'block';
-    }).catch(() => {
-      status.textContent = "Something went wrong sending that — please DM us on Instagram instead so we don't miss you.";
-      status.style.color = '#e08585';
-      status.style.display = 'block';
-    });
-  });
-})();
 </script>
 
 </body>
