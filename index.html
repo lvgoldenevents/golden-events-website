@@ -988,11 +988,24 @@ Golden Events &amp; Entertainment is a luxury balloon and event decor company ba
     </div>
 
     <!--
-      CONTACT FORM: powered by Formspree (or Web3Forms).
-      Sign up free, create a form, and replace YOUR_FORM_ID below —
-      submissions will land straight in your inbox, no backend needed.
+      CONTACT FORM: handled natively by Netlify Forms — no third-party
+      service, no backend code. Netlify's build bot detects this form
+      (because of the "data-netlify" attribute) at deploy time and starts
+      routing submissions to the Forms tab in your Netlify dashboard.
+
+      ONE-TIME SETUP (do this in the Netlify dashboard, not in code):
+      Site settings → Forms → Form notifications → Add notification →
+      "Email notification" → lvgoldenevents@gmail.com. That's it —
+      submissions land in your inbox from then on.
     -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+      <input type="hidden" name="form-name" value="contact">
+      <!-- Honeypot: real visitors never see or fill this; Netlify silently
+           discards any submission where it's filled in, so bots that
+           blindly fill every field get caught for free. -->
+      <p style="position:absolute; left:-9999px;" aria-hidden="true">
+        <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
       <div>
         <label for="name">Name</label>
         <input id="name" name="name" type="text" required>
@@ -1021,6 +1034,7 @@ Golden Events &amp; Entertainment is a luxury balloon and event decor company ba
       </div>
       <div class="full">
         <button type="submit" class="btn btn-gold">Send Details</button>
+        <p id="contactFormStatus" role="status" style="margin-top:14px; display:none;"></p>
       </div>
     </form>
 
@@ -1178,6 +1192,32 @@ document.querySelectorAll('.faq-item').forEach(item => {
     }
   });
 });
+
+// ---------- Contact form: submit to Netlify Forms without leaving the page ----------
+(function(){
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('contactFormStatus');
+  if(!form || !status) return;
+  const encode = (data) => new URLSearchParams(data).toString();
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(data)
+    }).then(() => {
+      form.reset();
+      status.textContent = "Thanks — we've got your details and will follow up shortly.";
+      status.style.color = 'var(--gold, #c9a44c)';
+      status.style.display = 'block';
+    }).catch(() => {
+      status.textContent = "Something went wrong sending that — please DM us on Instagram instead so we don't miss you.";
+      status.style.color = '#e08585';
+      status.style.display = 'block';
+    });
+  });
+})();
 </script>
 
 </body>
