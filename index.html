@@ -432,6 +432,21 @@ section{position:relative; z-index:2;}
   display:inline-block; background:var(--charcoal); border:1px solid var(--line);
   padding:2px 8px; border-radius:6px; color:var(--gold-light); font-size:0.78rem;
 }
+/* Free, no-subscription social embeds (Instagram/TikTok's own official
+   embed codes) in place of a paid feed-widget service. */
+.social-embed-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px; margin-bottom:24px; align-items:start;
+}
+.social-embed-slot{
+  border:1px dashed var(--line); border-radius:20px; overflow:hidden;
+  background:rgba(203,161,53,0.03); min-height:340px;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; color:var(--cream-dim); font-size:0.8rem; line-height:1.7; padding:24px;
+}
+.social-embed-slot:has(iframe), .social-embed-slot:has(blockquote){
+  border-style:solid; background:none; padding:0; min-height:0;
+}
 .testimonials{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
 .t-card{
   background:var(--charcoal); border:1px solid var(--line); border-radius:20px; padding:36px;
@@ -884,13 +899,45 @@ Golden Events &amp; Entertainment is a luxury balloon and event decor company ba
   </div>
   <div data-reveal>
     <!--
-      LIVE INSTAGRAM FEED GOES HERE.
-      Connect @lasvegasgoldenevents through SnapWidget, Taggbox, or
-      EmbedSocial and paste the generated embed code in place of this block.
+      FREE SOCIAL EMBEDS — no paid widget subscription (SnapWidget/Taggbox/
+      EmbedSocial all charge monthly for a "live feed"). Instagram and
+      TikTok each give you their own official embed code for free, per
+      post, straight from the app/site — no developer account, no API
+      key, no recurring cost. It's manual (you refresh which posts are
+      featured every so often instead of it auto-updating), which is the
+      trade-off for $0/month.
+
+      HOW TO FILL EACH SLOT BELOW:
+      Instagram: open the post in a browser → click the "···" menu on the
+      post → "Embed" → "Copy Embed Code" → paste the ENTIRE thing
+      (Instagram gives you a <blockquote> plus a <script> tag) in place
+      of one of the placeholder <div class="social-embed-slot"> blocks.
+      TikTok: open the video on tiktok.com → the "Share" arrow icon →
+      "Embed" → copy the code it gives you → paste it the same way.
+      It's fine if the pasted code includes its own <script src="...embed.js">
+      tag even though one is already included near the end of this file —
+      duplicates are harmless, both platforms' scripts handle that.
+
+      Pick 4-6 of your best recent posts/videos across both platforms and
+      mix them in the grid below in whatever order you like.
     -->
-    <div class="widget-slot">
-      Your live Instagram feed renders here once connected —<br>
-      replace this block with your embed code from <code>SnapWidget</code>, <code>Taggbox</code>, or <code>EmbedSocial</code>.
+    <div class="social-embed-grid" data-reveal>
+      <div class="social-embed-slot">
+        <!-- Happy 40th birthday — pink balloon install with number balloons -->
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@lvgoldenevents/video/7668840344217193759" data-video-id="7668840344217193759" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@lvgoldenevents" href="https://www.tiktok.com/@lvgoldenevents?refer=embed">@lvgoldenevents</a> Happy 40th birthday!💕🎉 <a title="lasvegasballoons" target="_blank" href="https://www.tiktok.com/tag/lasvegasballoons?refer=embed">#lasvegasballoons</a> <a title="balloonartist" target="_blank" href="https://www.tiktok.com/tag/balloonartist?refer=embed">#balloonartist</a> <a title="hoteldecoration" target="_blank" href="https://www.tiktok.com/tag/hoteldecoration?refer=embed">#hoteldecoration</a> <a title="vegastiktok" target="_blank" href="https://www.tiktok.com/tag/vegastiktok?refer=embed">#vegastiktok</a> <a title="decoratewithme" target="_blank" href="https://www.tiktok.com/tag/decoratewithme?refer=embed">#decoratewithme</a> <a target="_blank" title="♬ THAT GIRL - Tyla" href="https://www.tiktok.com/music/THAT-GIRL-7664711002852100112?refer=embed">♬ THAT GIRL - Tyla</a> </section> </blockquote>
+      </div>
+      <div class="social-embed-slot">
+        <!-- Birthday hotel setup, happy 27th birthday — pink/gold balloon install -->
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@lvgoldenevents/video/7670095100810218782" data-video-id="7670095100810218782" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@lvgoldenevents" href="https://www.tiktok.com/@lvgoldenevents?refer=embed">@lvgoldenevents</a> Birthday hotel setup, happy 27th birthday!🎉 <a title="hotelroomdecor" target="_blank" href="https://www.tiktok.com/tag/hotelroomdecor?refer=embed">#hotelroomdecor</a> <a title="lasvegashotelroomdecor" target="_blank" href="https://www.tiktok.com/tag/lasvegashotelroomdecor?refer=embed">#lasvegashotelroomdecor</a> <a title="balloonartist" target="_blank" href="https://www.tiktok.com/tag/balloonartist?refer=embed">#balloonartist</a> <a title="balloondecor" target="_blank" href="https://www.tiktok.com/tag/balloondecor?refer=embed">#balloondecor</a> <a title="decoratewithme" target="_blank" href="https://www.tiktok.com/tag/decoratewithme?refer=embed">#decoratewithme</a> <a target="_blank" title="♬ petal - Ariana Grande" href="https://www.tiktok.com/music/petal-7668507565575964673?refer=embed">♬ petal - Ariana Grande</a> </section> </blockquote>
+      </div>
+      <div class="social-embed-slot">
+        <!-- Lucky in Love — bachelorette-themed balloon install (dice/diamond decor) -->
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@lvgoldenevents/video/7668880472797170975" data-video-id="7668880472797170975" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@lvgoldenevents" href="https://www.tiktok.com/@lvgoldenevents?refer=embed">@lvgoldenevents</a> The bride to be is lucky &#38; in LOVE 🍾🎰🎈❤️‍🔥 <a title="luckyinlove" target="_blank" href="https://www.tiktok.com/tag/luckyinlove?refer=embed">#luckyinlove</a> <a title="vegasbacheloretteparty" target="_blank" href="https://www.tiktok.com/tag/vegasbacheloretteparty?refer=embed">#vegasbacheloretteparty</a> <a title="vegastiktok" target="_blank" href="https://www.tiktok.com/tag/vegastiktok?refer=embed">#vegastiktok</a> <a title="balloonartist" target="_blank" href="https://www.tiktok.com/tag/balloonartist?refer=embed">#balloonartist</a> <a title="hoteldecoration" target="_blank" href="https://www.tiktok.com/tag/hoteldecoration?refer=embed">#hoteldecoration</a> <a target="_blank" title="♬ original sound - 𝐧𝐢𝐧𝐢 ☾." href="https://www.tiktok.com/music/original-sound-7562302446677101334?refer=embed">♬ original sound - 𝐧𝐢𝐧𝐢 ☾.</a> </section> </blockquote>
+      </div>
+      <!-- 4th slot reserved for an Instagram post — Instagram only exposes its
+           "Embed" option to logged-in viewers, so grab one manually (open the
+           post → ··· menu → Embed → Copy Embed Code while signed in) and add
+           a <div class="social-embed-slot"> here with it, same pattern as above. -->
     </div>
     <div class="ig-strip">
       <div class="ig-copy">
@@ -1057,6 +1104,15 @@ Golden Events &amp; Entertainment is a luxury balloon and event decor company ba
 
   <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 -->
+
+<!--
+  Official, free embed scripts for the "Fresh off the install" section
+  above (Instagram + TikTok's own embed codes, not a paid feed widget).
+  These are safe to include even before any real posts are pasted in —
+  they just have nothing to process until slots are filled.
+-->
+<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
 
 <script>
 // ---------- Entrance curtain reveal ----------
