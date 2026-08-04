@@ -15,9 +15,12 @@
 
 <!-- ===================================================================
   SEO: Local business structured data.
-  Swap in your real phone number and confirm the areaServed list matches
-  where you actually travel. This is what lets Google understand you as
-  a Las-Vegas-wide service business, not just a single address.
+  Phone/email are intentionally omitted from this schema — the business
+  doesn't publish them, contact is by form/Instagram DM only. Add a
+  "telephone" field here only if that decision changes. Confirm the
+  areaServed list matches where you actually travel. This is what lets
+  Google understand you as a Las-Vegas-wide service business, not just a
+  single address.
 ==================================================================== -->
 <script type="application/ld+json">
 {
@@ -25,8 +28,7 @@
   "@type": "LocalBusiness",
   "name": "Golden Events & Entertainment",
   "image": "https://www.instagram.com/lasvegasgoldenevents/",
-  "url": "https://YOUR-DOMAIN-HERE.com",
-  "telephone": "+1-702-000-0000",
+  "url": "https://lasvegasgoldenevents.com",
   "priceRange": "$$",
   "areaServed": [
     {"@type": "City", "name": "Las Vegas, NV"},
@@ -35,7 +37,10 @@
     {"@type": "City", "name": "Summerlin, NV"},
     {"@type": "City", "name": "Paradise, NV"}
   ],
-  "sameAs": ["https://www.instagram.com/lasvegasgoldenevents/"],
+  "sameAs": [
+    "https://www.instagram.com/lasvegasgoldenevents/",
+    "https://www.tiktok.com/@lvgoldenevents"
+  ],
   "description": "Luxury balloon garlands, arches, and hotel-suite event styling serving the entire Las Vegas Valley.",
   "makesOffer": [
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Balloon Garland & Arch Installation","areaServed":"Las Vegas, NV"}},
@@ -896,7 +901,10 @@ Golden Events &amp; Entertainment is a luxury balloon and event decor company ba
         <div class="stat">3,401</div>
         <p>followers &amp; counting</p>
       </div>
-      <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank" class="btn btn-gold">Follow on Instagram</a>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank" class="btn btn-gold">Follow on Instagram</a>
+        <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank" class="btn btn-outline">Follow on TikTok</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1022,6 +1030,7 @@ Golden Events &amp; Entertainment is a luxury balloon and event decor company ba
       <a href="#gallery">Gallery</a>
       <a href="#faq">FAQ</a>
       <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank">TikTok</a>
     </div>
     <div class="footer-areas">Serving the entire Las Vegas Valley — The Strip · Downtown &amp; Fremont · Henderson · Summerlin · Spring Valley · Enterprise · North Las Vegas · Paradise &amp; Winchester</div>
     <div class="footer-bottom">© Golden Events &amp; Entertainment — Turning Moments Into Golden Memories</div>
