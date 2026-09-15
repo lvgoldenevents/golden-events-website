@@ -188,9 +188,9 @@ section{position:relative; z-index:2;}
   width:7px; height:7px; border-radius:50%; background:var(--gold);
   box-shadow:0 0 12px var(--gold);
 }
-.nav-links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+.nav-links{display:flex; gap:30px; align-items:center;}
 .nav-links a{
-  font-size:0.79rem; letter-spacing:0.02em; color:var(--cream-dim);
+  font-size:0.84rem; letter-spacing:0.02em; color:var(--cream-dim);
   position:relative; transition:color .3s; white-space:nowrap;
 }
 .nav-links a:hover{color:var(--cream);}
@@ -340,9 +340,7 @@ body.entrance-lock{ overflow:hidden; height:100%; }
 }
 
 /* ============================= RESPONSIVE ============================= */
-@media (max-width: 1200px){
-  /* wider than the usual 980px breakpoint — 9 nav items need more room
-     before the hamburger than 6 did, otherwise it wraps awkwardly. */
+@media (max-width: 980px){
   .nav-links{ display:none; }
   .menu-toggle{ display:flex; }
 }
@@ -383,9 +381,7 @@ body.entrance-lock{ overflow:hidden; height:100%; }
     <a href="/gallery">Gallery</a>
     <a href="/reviews">Reviews</a>
     <a href="/faq">FAQ</a>
-    <a href="/design-studio">Design Studio</a>
     <a href="/how-it-works">How It Works</a>
-    <a href="/book">Book a Consult</a>
   </div>
   <div class="nav-right">
     <a href="/book" class="btn btn-gold">Get a Quote</a>

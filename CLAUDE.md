@@ -42,19 +42,15 @@ SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
   - `how-it-works.html` — the 4-step process.
   - `book.html` — the Calendly placeholder + "DM on Instagram Instead",
     now the destination for every "Get a Quote" button sitewide.
-- **Nav bar (top, every page including the homepage) lists all 9 pages**:
-  Services / Areas / Pricing / Gallery / Reviews / FAQ / Design Studio /
-  How It Works / Book a Consult. That's deliberate — everything is
-  reachable straight from the top nav rather than buried in the footer.
-  Because 9 items need more room than 6 did, the nav switches to the
-  mobile hamburger menu at `max-width:1200px` instead of the usual
-  `980px` (a narrower breakpoint here causes an ugly two-line wrap right
-  before the switch — keep the wider breakpoint if more nav items get
-  added, or revisit it if any get removed). The footer-links row on
-  every non-home page is back to the original curated set (Services,
-  Pricing, Gallery, FAQ, Instagram, TikTok) — it's a shortcut, not the
-  only way to reach the other pages anymore. Every "Get a Quote" button
-  sitewide points to `/book`.
+- **Nav bar (top, every page including the homepage) lists 7 pages**:
+  Services / Areas / Pricing / Gallery / Reviews / FAQ / How It Works,
+  switching to the mobile hamburger menu at the standard
+  `max-width:980px`. Design Studio and Book a Consult are deliberately
+  NOT in the top nav — a 9-item nav was tried and felt too cluttered —
+  they live in the footer-links row instead (present on every non-home
+  page) alongside Services/Pricing/Gallery/FAQ/Instagram/TikTok, and in
+  the homepage's mobile menu. Every "Get a Quote" button sitewide points
+  to `/book`.
 - No shared partials/includes (matches the "no build step" constraint) —
   each page duplicates its own nav, footer (incl. the Netlify contact
   form), and CSS/JS. Only `index.html` skips the footer entirely, since

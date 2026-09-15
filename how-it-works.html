@@ -203,9 +203,9 @@ section{position:relative; z-index:2;}
   width:7px; height:7px; border-radius:50%; background:var(--gold);
   box-shadow:0 0 12px var(--gold);
 }
-.nav-links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+.nav-links{display:flex; gap:30px; align-items:center;}
 .nav-links a{
-  font-size:0.79rem; letter-spacing:0.02em; color:var(--cream-dim);
+  font-size:0.84rem; letter-spacing:0.02em; color:var(--cream-dim);
   position:relative; transition:color .3s; white-space:nowrap;
 }
 .nav-links a:hover{color:var(--cream);}
@@ -411,9 +411,7 @@ section{position:relative; z-index:2;}
 .footer-bottom{ text-align:center; margin-top:26px; font-size:0.75rem; color:#7a7364; letter-spacing:.03em; }
 
 /* ============================= RESPONSIVE ============================= */
-@media (max-width: 1200px){
-  /* wider than the usual 980px breakpoint — 9 nav items need more room
-     before the hamburger than 6 did, otherwise it wraps awkwardly. */
+@media (max-width: 980px){
   .nav-links{ display:none; }
   .menu-toggle{ display:flex; }
 }
@@ -446,9 +444,7 @@ section{position:relative; z-index:2;}
     <a href="/gallery" class="">Gallery</a>
     <a href="/reviews" class="">Reviews</a>
     <a href="/faq" class="">FAQ</a>
-    <a href="/design-studio" class="">Design Studio</a>
     <a href="/how-it-works" class="current">How It Works</a>
-    <a href="/book" class="">Book a Consult</a>
   </div>
   <div class="nav-right">
     <a href="/book" class="btn btn-gold">Get a Quote</a>
@@ -577,6 +573,8 @@ section{position:relative; z-index:2;}
       <a href="/pricing">Pricing</a>
       <a href="/gallery">Gallery</a>
       <a href="/faq">FAQ</a>
+      <a href="/design-studio">Design Studio</a>
+      <a href="/book">Book a Consult</a>
       <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank">TikTok</a>
     </div>

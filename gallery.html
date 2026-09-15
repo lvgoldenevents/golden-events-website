@@ -212,9 +212,9 @@ section{position:relative; z-index:2;}
   width:7px; height:7px; border-radius:50%; background:var(--gold);
   box-shadow:0 0 12px var(--gold);
 }
-.nav-links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+.nav-links{display:flex; gap:30px; align-items:center;}
 .nav-links a{
-  font-size:0.79rem; letter-spacing:0.02em; color:var(--cream-dim);
+  font-size:0.84rem; letter-spacing:0.02em; color:var(--cream-dim);
   position:relative; transition:color .3s; white-space:nowrap;
 }
 .nav-links a:hover{color:var(--cream);}
@@ -419,10 +419,58 @@ section{position:relative; z-index:2;}
 .footer-areas{ font-size:0.75rem; color:#7a7364; margin-top:22px; line-height:1.8; max-width:700px; margin-left:auto; margin-right:auto; }
 .footer-bottom{ text-align:center; margin-top:26px; font-size:0.75rem; color:#7a7364; letter-spacing:.03em; }
 
+/* ============================= BEFORE / AFTER SLIDER ============================= */
+.before-after{
+  position:relative; width:100%; aspect-ratio:4/3; max-height:560px;
+  border-radius:20px; overflow:hidden; border:1px solid var(--line);
+  cursor:ew-resize; -webkit-user-select:none; user-select:none;
+  touch-action:pan-y;
+}
+.before-after .ba-img{
+  position:absolute; inset:0; width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Sora',sans-serif; font-size:0.85rem; letter-spacing:.04em;
+  color:var(--cream-dim); text-align:center; padding:20px;
+}
+.before-after .ba-before{
+  background:linear-gradient(160deg,#3a3630,#0b0a08);
+}
+.before-after .ba-after{
+  background:linear-gradient(160deg,#8a6a1f,#0b0a08);
+  clip-path:inset(0 0 0 50%);
+}
+.before-after .ba-label{
+  position:absolute; top:16px; z-index:3;
+  font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase;
+  background:rgba(11,10,8,0.6); backdrop-filter:blur(4px);
+  color:var(--cream); padding:7px 16px; border-radius:999px;
+  pointer-events:none;
+}
+.ba-label-before{ left:16px; }
+.ba-label-after{ right:16px; }
+.before-after .ba-handle{
+  position:absolute; top:0; bottom:0; left:50%; width:0;
+  transform:translateX(-50%); z-index:2; pointer-events:none;
+}
+.before-after .ba-handle::before{
+  content:''; position:absolute; top:0; bottom:0; left:50%;
+  width:2px; background:var(--gold); transform:translateX(-50%);
+  box-shadow:0 0 12px rgba(203,161,53,.5);
+}
+.before-after .ba-grip{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:46px; height:46px; border-radius:50%; background:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.45);
+  font-size:1rem; color:var(--black);
+}
+.before-after.dragging{ cursor:grabbing; }
+.ba-caption{
+  text-align:center; color:var(--cream-dim); font-size:0.82rem; margin-top:18px;
+}
+
 /* ============================= RESPONSIVE ============================= */
-@media (max-width: 1200px){
-  /* wider than the usual 980px breakpoint — 9 nav items need more room
-     before the hamburger than 6 did, otherwise it wraps awkwardly. */
+@media (max-width: 980px){
   .nav-links{ display:none; }
   .menu-toggle{ display:flex; }
 }
@@ -455,9 +503,7 @@ section{position:relative; z-index:2;}
     <a href="/gallery" class="current">Gallery</a>
     <a href="/reviews" class="">Reviews</a>
     <a href="/faq" class="">FAQ</a>
-    <a href="/design-studio" class="">Design Studio</a>
     <a href="/how-it-works" class="">How It Works</a>
-    <a href="/book" class="">Book a Consult</a>
   </div>
   <div class="nav-right">
     <a href="/book" class="btn btn-gold">Get a Quote</a>
@@ -486,8 +532,31 @@ section{position:relative; z-index:2;}
     <p>From Strip hotel suites to grand openings — every project starts as a custom mockup before it becomes one of these.</p>
   </div>
 
+  <!--
+    BEFORE / AFTER SLIDER
+    Placeholder gradients stand in for real photos below — swap them in
+    by either adding a background-image to .ba-before / .ba-after (and
+    deleting the placeholder <span> inside each), or replacing each
+    <div class="ba-img ..."> with an <img class="ba-img ba-before/ba-after"
+    src="..." alt="...">. Use two photos of the SAME room from the SAME
+    angle (tripod/same spot) so the comparison lines up when dragged.
+  -->
   <div class="section-pad container">
-    <div class="gallery" data-reveal>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Before &amp; After</span>
+    </div>
+    <div class="before-after" id="beforeAfter" data-reveal tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <div class="ba-img ba-before"><span>Before photo goes here</span></div>
+      <div class="ba-img ba-after" id="baAfter"><span>After photo goes here</span></div>
+      <span class="ba-label ba-label-before">Before</span>
+      <span class="ba-label ba-label-after">After</span>
+      <div class="ba-handle" id="baHandle">
+        <div class="ba-grip">↔</div>
+      </div>
+    </div>
+    <p class="ba-caption">Drag the slider — empty suite vs. styled and ready for a proposal.</p>
+
+    <div class="gallery" data-reveal style="margin-top:64px;">
       <div class="tile tile-1"><span>Suite Proposal · The Strip</span></div>
       <div class="tile tile-2"><span>Grand Opening · Downtown</span></div>
       <div class="tile tile-3"><span>Baby Shower · Summerlin</span></div>
@@ -639,6 +708,8 @@ section{position:relative; z-index:2;}
       <a href="/pricing">Pricing</a>
       <a href="/gallery">Gallery</a>
       <a href="/faq">FAQ</a>
+      <a href="/design-studio">Design Studio</a>
+      <a href="/book">Book a Consult</a>
       <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank">TikTok</a>
     </div>
@@ -714,6 +785,56 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
   });
 })();
 
+// ---------- Before/after slider ----------
+(function(){
+  const wrap = document.getElementById('beforeAfter');
+  const handle = document.getElementById('baHandle');
+  const after = document.getElementById('baAfter');
+  if(!wrap || !handle || !after) return;
+
+  let dragging = false;
+
+  function setPosition(pct){
+    pct = Math.max(0, Math.min(100, pct));
+    after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+    handle.style.left = pct + '%';
+    wrap.setAttribute('aria-valuenow', Math.round(pct));
+  }
+
+  function positionFromClientX(clientX){
+    const rect = wrap.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  function start(clientX){
+    dragging = true;
+    wrap.classList.add('dragging');
+    setPosition(positionFromClientX(clientX));
+  }
+  function move(clientX){
+    if(!dragging) return;
+    setPosition(positionFromClientX(clientX));
+  }
+  function end(){
+    dragging = false;
+    wrap.classList.remove('dragging');
+  }
+
+  wrap.addEventListener('mousedown', (e) => start(e.clientX));
+  window.addEventListener('mousemove', (e) => move(e.clientX));
+  window.addEventListener('mouseup', end);
+
+  wrap.addEventListener('touchstart', (e) => start(e.touches[0].clientX), {passive:true});
+  window.addEventListener('touchmove', (e) => { if(dragging) move(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchend', end);
+
+  // Keyboard support (left/right arrows, since it's a role="slider")
+  wrap.addEventListener('keydown', (e) => {
+    const current = parseFloat(wrap.getAttribute('aria-valuenow')) || 50;
+    if(e.key === 'ArrowLeft'){ setPosition(current - 5); e.preventDefault(); }
+    if(e.key === 'ArrowRight'){ setPosition(current + 5); e.preventDefault(); }
+  });
+})();
 </script>
 
 </body>
