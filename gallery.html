@@ -428,15 +428,11 @@ section{position:relative; z-index:2;}
 }
 .before-after .ba-img{
   position:absolute; inset:0; width:100%; height:100%;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Sora',sans-serif; font-size:0.85rem; letter-spacing:.04em;
-  color:var(--cream-dim); text-align:center; padding:20px;
-}
-.before-after .ba-before{
-  background:linear-gradient(160deg,#3a3630,#0b0a08);
+  object-fit:cover; display:block;
+  -webkit-user-drag:none; user-drag:none;
+  -webkit-touch-callout:none;
 }
 .before-after .ba-after{
-  background:linear-gradient(160deg,#8a6a1f,#0b0a08);
   clip-path:inset(0 0 0 50%);
 }
 .before-after .ba-label{
@@ -534,27 +530,26 @@ section{position:relative; z-index:2;}
 
   <!--
     BEFORE / AFTER SLIDER
-    Placeholder gradients stand in for real photos below — swap them in
-    by either adding a background-image to .ba-before / .ba-after (and
-    deleting the placeholder <span> inside each), or replacing each
-    <div class="ba-img ..."> with an <img class="ba-img ba-before/ba-after"
-    src="..." alt="...">. Use two photos of the SAME room from the SAME
-    angle (tripod/same spot) so the comparison lines up when dragged.
+    Two real photos of the same Strip hotel suite, same framing — empty
+    room vs. styled for a 21st birthday. To swap in a different pair
+    later, replace images/suite-before.jpg and images/suite-after.jpg
+    (or update the src attributes below to new filenames), keeping the
+    same room/angle so the drag comparison still lines up.
   -->
   <div class="section-pad container">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Before &amp; After</span>
     </div>
     <div class="before-after" id="beforeAfter" data-reveal tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-      <div class="ba-img ba-before"><span>Before photo goes here</span></div>
-      <div class="ba-img ba-after" id="baAfter"><span>After photo goes here</span></div>
+      <img class="ba-img ba-before" src="/images/suite-before.jpg" alt="Empty Strip hotel suite before balloon styling" draggable="false">
+      <img class="ba-img ba-after" id="baAfter" src="/images/suite-after.jpg" alt="Same hotel suite styled with pink and green balloon garland for a 21st birthday" draggable="false">
       <span class="ba-label ba-label-before">Before</span>
       <span class="ba-label ba-label-after">After</span>
       <div class="ba-handle" id="baHandle">
         <div class="ba-grip">↔</div>
       </div>
     </div>
-    <p class="ba-caption">Drag the slider — empty suite vs. styled and ready for a proposal.</p>
+    <p class="ba-caption">Drag the slider — empty Strip suite vs. styled for a 21st birthday.</p>
 
     <div class="gallery" data-reveal style="margin-top:64px;">
       <div class="tile tile-1"><span>Suite Proposal · The Strip</span></div>
@@ -820,7 +815,8 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
     wrap.classList.remove('dragging');
   }
 
-  wrap.addEventListener('mousedown', (e) => start(e.clientX));
+  wrap.addEventListener('mousedown', (e) => { e.preventDefault(); start(e.clientX); });
+  wrap.addEventListener('dragstart', (e) => e.preventDefault());
   window.addEventListener('mousemove', (e) => move(e.clientX));
   window.addEventListener('mouseup', end);
 
