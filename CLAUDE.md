@@ -129,8 +129,8 @@ in progress) → Namecheap domain. Live at https://lasvegasgoldenevents.com.
 - Don't add real testimonials/reviews as fact — current ones are clearly
   placeholder copy for the owner to replace with real reviews
 - Don't invent pricing beyond what's already set — current tiers are
-  placeholders too ($250 / $650 / $1,500 starting) pending the owner's real
-  rates
+  Basic Package ($250), Dream Package ($300), and Golden Package ($500),
+  all "starting" prices
 - Respect `prefers-reduced-motion` in any new animation work — the existing
   code already gates all animation behind it
 - The business intentionally doesn't publish a phone/email on the site —
