@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design Studio — Custom Balloon Color Mockups | Golden Events & Entertainment</title>
-<meta name="description" content="Pick a palette and watch it come to life. Every Golden Events install starts as a free custom digital mockup in your colors.">
-<meta property="og:title" content="Design Studio — Golden Events & Entertainment">
-<meta property="og:description" content="Pick a palette. Watch it come to life.">
+<title>Bachelorette Party Balloon Decor Las Vegas | Golden Events & Entertainment</title>
+<meta name="description" content="Bachelorette balloon packages starting at $250 — bridal banners, ring balloons, and full balloon arches delivered anywhere in the Las Vegas Valley.">
+<meta property="og:title" content="Bachelorette Parties — Golden Events & Entertainment">
+<meta property="og:description" content="Balloon decor packages built for the bride, starting at $250.">
 <meta property="og:type" content="website">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://lasvegasgoldenevents.com/design-studio">
+<link rel="canonical" href="https://lasvegasgoldenevents.com/bachelorette-parties">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -48,49 +48,6 @@
   ]
 }
 </script>
-<style>
-/* Design Studio widget — only needed on this page. */
-.designer{
-  background:var(--charcoal); border:1px solid var(--line); border-radius:28px;
-  padding:70px 50px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
-  position:relative; overflow:hidden;
-}
-.swatches{ display:flex; gap:14px; flex-wrap:wrap; }
-.swatch{
-  width:42px; height:42px; border-radius:50%; border:2px solid transparent;
-  transition:transform .3s var(--ease), border-color .3s;
-  position:relative;
-}
-.swatch.active, .swatch:hover{ transform:scale(1.14); border-color:var(--cream); }
-.swatch[data-c="gold"]{ background:radial-gradient(circle at 32% 28%, #f5e3ab, #cba135 60%, #8a6a1f); }
-.swatch[data-c="emerald"]{ background:radial-gradient(circle at 32% 28%, #7fd6b3, #1c4f3f 60%, #0d281f); }
-.swatch[data-c="blush"]{ background:radial-gradient(circle at 32% 28%, #f5d3d3, #d98c8c 60%, #a35a5a); }
-.swatch[data-c="ivory"]{ background:radial-gradient(circle at 32% 28%, #ffffff, #e8ddc2 60%, #b7a878); }
-.swatch[data-c="black"]{ background:radial-gradient(circle at 32% 28%, #3a3630, #17140f 60%, #060504); }
-.arch-stage{ height:340px; position:relative; display:flex; align-items:flex-end; justify-content:center; }
-.arch{ position:relative; width:100%; height:100%; }
-.arch .balloon{ position:absolute; transition:background .5s var(--ease); }
-.balloon{
-  position:relative;
-  border-radius:50% 50% 50% 50% / 58% 58% 42% 42%;
-  box-shadow: inset -8px -10px 20px rgba(0,0,0,.35), inset 8px 10px 18px rgba(255,255,255,.12), 0 10px 25px rgba(0,0,0,.35);
-}
-.balloon::before{
-  content:'';
-  position:absolute; left:50%; bottom:-6px; width:8px; height:8px;
-  background:inherit; filter:brightness(.7);
-  clip-path:polygon(50% 100%, 0 0, 100% 0);
-  transform:translateX(-50%);
-}
-.balloon.gold{ background:radial-gradient(circle at 32% 28%, #f5e3ab, #cba135 55%, #8a6a1f 100%); }
-.balloon.emerald{ background:radial-gradient(circle at 32% 28%, #7fd6b3, #1c4f3f 55%, #0d281f 100%); }
-.balloon.blush{ background:radial-gradient(circle at 32% 28%, #f5d3d3, #d98c8c 55%, #a35a5a 100%); }
-.balloon.ivory{ background:radial-gradient(circle at 32% 28%, #ffffff, #e8ddc2 55%, #b7a878 100%); }
-.balloon.black{ background:radial-gradient(circle at 32% 28%, #3a3630, #17140f 55%, #060504 100%); }
-@media (max-width: 980px){
-  .designer{ grid-template-columns:1fr; padding:44px 26px; }
-}
-</style>
 
 
 <style>
@@ -110,6 +67,12 @@
   --line: rgba(203,161,53,0.22);
   --shadow: 0 20px 60px rgba(0,0,0,0.5);
   --ease: cubic-bezier(.22,1,.36,1);
+  /* Hot pink accent trio — used on this page only, alongside gold, for
+     a rose-gold bachelorette/bridal feel rather than replacing gold. */
+  --pink:#ec4899;
+  --pink-light:#f9a8d4;
+  --pink-deep:#9d174d;
+  --pink-line: rgba(236,72,153,0.28);
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -142,6 +105,14 @@ h1,h2,h3,h4{
 }
 .gold-text{
   background:linear-gradient(100deg, var(--gold-deep) 10%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-light) 90%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shimmer 6s ease-in-out infinite;
+}
+.pink-text{
+  background:linear-gradient(100deg, var(--pink-deep) 10%, var(--pink-light) 40%, var(--pink) 60%, var(--pink-light) 90%);
   background-size:220% 100%;
   -webkit-background-clip:text;
   background-clip:text;
@@ -251,6 +222,18 @@ section{position:relative; z-index:2;}
 }
 .btn-outline:hover{ border-color:var(--gold); background:rgba(203,161,53,0.08); }
 
+/* Rose-gold treatment for the pricing/CTA buttons on THIS page only —
+   nav/footer/form buttons stay plain gold for sitewide consistency. */
+.pricing-grid .btn-gold, .cta-band .btn-gold{
+  background:linear-gradient(120deg, var(--pink-light), var(--gold) 55%, var(--pink-deep));
+}
+.pricing-grid .btn-gold:hover, .cta-band .btn-gold:hover{
+  box-shadow:0 14px 30px rgba(236,72,153,0.35);
+}
+.pricing-grid .btn-outline:hover, .cta-band .btn-outline:hover{
+  border-color:var(--pink); background:rgba(236,72,153,0.08);
+}
+
 .menu-toggle{
   display:none; flex-direction:column; gap:5px; z-index:600; cursor:pointer;
 }
@@ -275,6 +258,22 @@ section{position:relative; z-index:2;}
 .page-head h1{ font-size:clamp(2.1rem,4.4vw,3.1rem); margin:16px 0 22px; max-width:780px; }
 .page-head p{ max-width:640px; color:var(--cream-dim); font-size:1.02rem; line-height:1.75; }
 
+/* ============================= PRICING CATEGORY TABS ============================= */
+.price-tabs{ display:flex; gap:12px; flex-wrap:wrap; padding:40px 0 0; }
+.price-tab{
+  padding:10px 22px; border-radius:999px; border:1px solid var(--line);
+  font-size:0.84rem; color:var(--cream-dim); transition:all .3s var(--ease); white-space:nowrap;
+}
+.price-tab:hover{ border-color:var(--gold); color:var(--cream); }
+.price-tab.active{
+  background:var(--gold); color:#161310; border-color:var(--gold); font-weight:600;
+}
+.price-tab.pink:hover{ border-color:var(--pink); color:var(--cream); }
+.price-tab.pink.active{
+  background:linear-gradient(120deg, var(--pink-light), var(--pink) 60%, var(--pink-deep));
+  color:#2b0a1a; border-color:var(--pink);
+}
+
 /* ============================= REVEAL ============================= */
 [data-reveal]{ opacity:0; transform:translateY(34px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
 [data-reveal].in-view{ opacity:1; transform:translateY(0); }
@@ -284,37 +283,6 @@ section{position:relative; z-index:2;}
 .section-pad{ padding:88px 0; }
 .section-alt{ background:var(--charcoal); }
 
-/* ============================= SERVICES ============================= */
-.services-grid{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-  background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;
-}
-.service-card{
-  background:var(--charcoal); padding:44px 30px; min-height:320px;
-  display:flex; flex-direction:column; justify-content:space-between;
-  transition:background .4s var(--ease), transform .4s var(--ease);
-}
-.service-card:hover{ background:var(--charcoal-2); transform:translateY(-6px); }
-.service-card .num{ font-family:'Fraunces',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.1em; }
-.service-icon{ width:44px; height:54px; margin:20px 0; }
-.service-card h3{ font-size:1.24rem; font-weight:600; margin-bottom:12px; }
-.service-card p{ font-size:0.89rem; color:var(--cream-dim); line-height:1.65; }
-
-/* ============================= SERVICE AREA ============================= */
-.area-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-.area-card{
-  border:1px solid var(--line); border-radius:16px; padding:24px;
-  transition:border-color .35s, transform .35s var(--ease), background .35s;
-  background:var(--black);
-}
-.area-card:hover{ border-color:var(--gold); transform:translateY(-4px); background:var(--charcoal); }
-.area-card .pin{
-  width:8px; height:8px; border-radius:50%; background:var(--gold); margin-bottom:16px;
-  box-shadow:0 0 10px var(--gold);
-}
-.area-card h4{ font-size:1.02rem; font-weight:600; margin-bottom:6px; }
-.area-card p{ font-size:0.8rem; color:var(--cream-dim); }
-
 /* ============================= PRICING ============================= */
 .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .price-card{
@@ -322,68 +290,22 @@ section{position:relative; z-index:2;}
   display:flex; flex-direction:column; transition:transform .4s var(--ease), border-color .4s;
   position:relative; background:var(--black);
 }
-.price-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
-.price-card.popular{ background:var(--charcoal-2); border-color:var(--gold); }
+.price-card:hover{ transform:translateY(-6px); border-color:var(--pink); }
+.price-card.popular{ background:var(--charcoal-2); border-color:var(--pink); }
 .price-card .badge{
-  position:absolute; top:-13px; left:32px; background:var(--gold); color:#161310;
+  position:absolute; top:-13px; left:32px;
+  background:linear-gradient(120deg, var(--pink-light), var(--pink) 70%); color:#2b0a1a;
   font-size:0.68rem; font-weight:700; letter-spacing:.06em; padding:5px 14px; border-radius:999px;
   text-transform:uppercase;
 }
 .price-card h3{ font-size:1.2rem; margin-bottom:6px; }
-.price-card .price{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--gold-light); margin:14px 0; }
+.price-card .price{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--pink-light); margin:14px 0; }
 .price-card .price span{ font-family:'Sora',sans-serif; font-size:0.85rem; color:var(--cream-dim); }
 .price-card p.desc{ color:var(--cream-dim); font-size:0.88rem; line-height:1.6; margin-bottom:22px; }
 .price-card ul{ list-style:none; margin-bottom:30px; flex-grow:1; }
 .price-card li{ font-size:0.85rem; color:var(--cream-dim); padding:8px 0; border-top:1px solid var(--line); display:flex; gap:10px; }
-.price-card li::before{ content:'✦'; color:var(--gold); font-size:0.7rem; }
+.price-card li::before{ content:'✦'; color:var(--pink); font-size:0.7rem; }
 .pricing-note{ text-align:center; color:var(--cream-dim); font-size:0.8rem; margin-top:30px; }
-
-/* ============================= GALLERY ============================= */
-.gallery{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:130px; gap:14px; }
-.tile{
-  border-radius:16px; position:relative; overflow:hidden; display:flex; align-items:flex-end;
-  padding:18px; transition:transform .5s var(--ease); border:1px solid var(--line);
-}
-.tile:hover{ transform:scale(1.02); }
-.tile span{ font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.85); position:relative; z-index:2;}
-.tile-1{ grid-column:span 2; grid-row:span 2; background:linear-gradient(160deg,#8a6a1f,#0b0a08); }
-.tile-2{ grid-row:span 1; background:linear-gradient(160deg,#1c4f3f,#0b0a08); }
-.tile-3{ grid-row:span 1; background:linear-gradient(160deg,#a35a5a,#0b0a08); }
-.tile-4{ grid-row:span 2; background:linear-gradient(200deg,#3a3630,#0b0a08); }
-.tile-5{ grid-column:span 2; grid-row:span 1; background:linear-gradient(160deg,#cba135,#0b0a08); }
-.tile-6{ grid-row:span 1; background:linear-gradient(160deg,#1c4f3f,#3a3630); }
-
-/* ============================= WIDGET SLOTS (Reviews) ============================= */
-.widget-slot{
-  border:1px dashed var(--line); border-radius:20px; padding:44px;
-  text-align:center; color:var(--cream-dim); font-size:0.85rem; line-height:1.7;
-  background:rgba(203,161,53,0.03); margin-bottom:40px;
-}
-.widget-slot code{
-  display:inline-block; background:var(--charcoal); border:1px solid var(--line);
-  padding:2px 8px; border-radius:6px; color:var(--gold-light); font-size:0.78rem;
-}
-.testimonials{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-.t-card{
-  background:var(--charcoal); border:1px solid var(--line); border-radius:20px; padding:36px;
-  transition:transform .4s var(--ease), border-color .4s;
-}
-.t-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
-.t-card .stars{ color:var(--gold); letter-spacing:3px; margin-bottom:18px; font-size:.9rem; }
-.t-card p{ font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; line-height:1.6; margin-bottom:22px; }
-.t-card .who{ font-size:0.8rem; color:var(--cream-dim); letter-spacing:.03em; }
-
-/* ============================= FAQ ============================= */
-.faq-list{ max-width:820px; }
-.faq-item{ border-bottom:1px solid var(--line); }
-.faq-q{
-  width:100%; display:flex; justify-content:space-between; align-items:center;
-  padding:26px 4px; text-align:left; font-family:'Fraunces',serif; font-size:1.08rem; font-weight:500;
-}
-.faq-q .plus{ font-size:1.3rem; color:var(--gold); transition:transform .35s var(--ease); flex-shrink:0; margin-left:20px; }
-.faq-item.open .faq-q .plus{ transform:rotate(45deg); }
-.faq-a{ max-height:0; overflow:hidden; transition:max-height .45s var(--ease); }
-.faq-a p{ padding:0 4px 26px; color:var(--cream-dim); font-size:0.92rem; line-height:1.7; max-width:640px; }
 
 /* ============================= CLOSING CTA BAND ============================= */
 .cta-band{
@@ -434,10 +356,6 @@ section{position:relative; z-index:2;}
   .menu-toggle{ display:flex; }
 }
 @media (max-width: 980px){
-  .services-grid{ grid-template-columns:repeat(2,1fr); }
-  .area-grid{ grid-template-columns:repeat(2,1fr); }
-  .gallery{ grid-template-columns:repeat(2,1fr); }
-  .testimonials{ grid-template-columns:1fr; }
   .pricing-grid{ grid-template-columns:1fr; }
   .contact-form{ grid-template-columns:1fr; }
   .page-head{ padding:140px 0 48px; }
@@ -477,8 +395,8 @@ section{position:relative; z-index:2;}
   <a href="/gallery" class="">Gallery</a>
   <a href="/reviews" class="">Reviews</a>
   <a href="/faq" class="">FAQ</a>
-  <a href="/design-studio" class="current">Design Studio</a>
-  <a href="/bachelorette-parties" class="">Bachelorette Parties</a>
+  <a href="/design-studio" class="">Design Studio</a>
+  <a href="/bachelorette-parties" class="current">Bachelorette Parties</a>
   <a href="/how-it-works" class="">How It Works</a>
   <a href="/book" class="">Book a Consult</a>
   <a href="#contact">Contact</a>
@@ -486,37 +404,72 @@ section{position:relative; z-index:2;}
 
 <main>
   <div class="container page-head">
-    <div class="crumb"><a href="/">Home</a><span>/</span><span class="here">Design Studio</span></div>
-    <span class="eyebrow">Design Studio</span>
-    <h1>Pick a palette. Watch it come to <span class="gold-text">life.</span></h1>
-    <p>Every install starts as a custom digital mockup in your colors — so you know exactly what's arriving before we book a single balloon. Try it yourself.</p>
+    <div class="crumb"><a href="/">Home</a><span>/</span><span class="here">Bachelorette Parties</span></div>
+    <span class="eyebrow" style="color:var(--pink-light);">For The Bride</span>
+    <h1>Balloon decor for the <span class="pink-text">bachelorette</span></h1>
+    <p>Ring balloons, a bridal banner, and a full balloon arch — every bachelorette package includes a free custom mockup, so the bride sees exactly what's arriving before anything is booked.</p>
+    <div class="price-tabs" data-reveal>
+      <a href="/pricing" class="price-tab">General</a>
+      <a href="/bachelorette-parties" class="price-tab pink active">Bachelorette Parties</a>
+    </div>
   </div>
 
   <div class="section-pad container">
-    <div class="designer" data-reveal>
-      <div class="designer-copy">
-        <span class="eyebrow" style="margin-bottom:16px; display:block;">Choose a Palette</span>
-        <div class="swatches" id="swatches">
-          <button class="swatch active" data-c="gold" aria-label="Gold palette"></button>
-          <button class="swatch" data-c="emerald" aria-label="Emerald palette"></button>
-          <button class="swatch" data-c="blush" aria-label="Blush palette"></button>
-          <button class="swatch" data-c="ivory" aria-label="Ivory palette"></button>
-          <button class="swatch" data-c="black" aria-label="Black palette"></button>
-        </div>
+    <div class="pricing-grid" data-reveal>
+      <div class="price-card">
+        <h3>Basic Package</h3>
+        <div class="price">$250<span> starting</span></div>
+        <p class="desc">A bridal balloon banner with ring balloons and scattered accents — perfect for a hotel suite kickoff.</p>
+        <ul>
+          <li>Bridal 16-inch balloon banner</li>
+          <li>Two ring balloons on columns</li>
+          <li>20 air-filled balloons (scattered)</li>
+          <li>20 helium effect balloons (two colors)</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get This Package</a>
       </div>
-      <div class="arch-stage">
-        <div class="arch" id="arch"></div>
+      <div class="price-card popular">
+        <span class="badge">Most Booked</span>
+        <h3>Dream Package</h3>
+        <div class="price">$300<span> starting</span></div>
+        <p class="desc">More balloons, a bride sash, confetti decor, and a mix of bach-theme touches for a fuller suite reveal.</p>
+        <ul>
+          <li>Bridal 16-inch balloon banner</li>
+          <li>Two ring balloons on columns</li>
+          <li>40 air-filled balloons (scattered)</li>
+          <li>30 helium effect balloons (two colors)</li>
+          <li>Confetti decor + bride sash</li>
+          <li>Variety of bach-theme decor</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">Get This Package</a>
+      </div>
+      <div class="price-card">
+        <h3>Golden Package</h3>
+        <div class="price">$500<span> starting</span></div>
+        <p class="desc">The full bachelorette experience — balloon arch, fringe curtain, bridal photo props, and sash included.</p>
+        <ul>
+          <li>Bridal 16-inch balloon banner</li>
+          <li>Two ring balloons on columns</li>
+          <li>50 air-filled balloons (scattered)</li>
+          <li>50 helium effect balloons (three colors)</li>
+          <li>Balloon arch</li>
+          <li>Bridal props for photos</li>
+          <li>Foil fringe curtain</li>
+          <li>Bride sash + bridal decor</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Get This Package</a>
       </div>
     </div>
+    <p class="pricing-note">*Final pricing depends on scale, balloon type, and location — every quote starts with a free consult.</p>
   </div>
 
   <div class="cta-band">
     <div class="container">
-      <h2>Like what you see?</h2>
-      <p>This is exactly what we send before you book anything — a free custom mockup in your own colors.</p>
+      <h2>Ready to surprise the bride?</h2>
+      <p>Tell us the date and vibe — we'll follow up with a free custom mockup, usually same day.</p>
       <div class="cta-actions">
-        <a href="/book" class="btn btn-gold">Book Your Consultation</a>
-        <a href="/services" class="btn btn-outline">See Services</a>
+        <a href="#contact" class="btn btn-gold">Get a Free Quote</a>
+        <a href="/pricing" class="btn btn-outline">See General Pricing</a>
       </div>
     </div>
   </div>
@@ -564,7 +517,7 @@ section{position:relative; z-index:2;}
         <select id="type" name="event_type">
           <option>Birthday</option>
           <option>Hotel Suite / Proposal</option>
-          <option>Bachelorette Party</option>
+          <option selected>Bachelorette Party</option>
           <option>Baby Shower</option>
           <option>Grand Opening / Corporate</option>
           <option>Other</option>
@@ -659,39 +612,6 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
       status.textContent = "Something went wrong sending that — please DM us on Instagram instead so we don't miss you.";
       status.style.color = '#e08585';
       status.style.display = 'block';
-    });
-  });
-})();
-
-// ---------- Interactive arch designer ----------
-(function(){
-  const arch = document.getElementById('arch');
-  if(!arch) return;
-  const archCount = 15;
-  const archBalloons = [];
-  for(let i=0;i<archCount;i++){
-    const t = i/(archCount-1);
-    const bx = t*100;
-    const by = Math.sin(t*Math.PI) * 100;
-    const size = 34 + Math.sin(t*Math.PI)*20;
-    const b = document.createElement('div');
-    b.className = 'balloon gold';
-    b.style.width = size+'px';
-    b.style.height = (size*1.15)+'px';
-    b.style.left = `calc(${bx}% - ${size/2}px)`;
-    b.style.bottom = by+'px';
-    arch.appendChild(b);
-    archBalloons.push(b);
-  }
-  document.getElementById('swatches').addEventListener('click', (e) => {
-    const btn = e.target.closest('.swatch');
-    if(!btn) return;
-    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
-    btn.classList.add('active');
-    const c = btn.dataset.c;
-    archBalloons.forEach((b, i) => {
-      b.className = 'balloon ' + c;
-      if(i % 4 === 0 && c !== 'ivory') b.classList.add('ivory');
     });
   });
 })();

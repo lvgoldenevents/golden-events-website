@@ -21,7 +21,7 @@ Fraunces (display/headings) + Sora (body). Signature interactive element:
 a "Design Studio" section where clicking color swatches live-recolors an
 SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
 
-## Site structure — 10-page static site, no build step
+## Site structure — 11-page static site, no build step
 - `index.html` — homepage is **intentionally just the hero + marquee,
   full stop**: Nav → Hero (animated balloon field + cursor gold-dust
   trail) → curtain entrance animation on load → the service-area marquee
@@ -30,27 +30,37 @@ SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
   `flex:0 0 auto`, so the marquee always sits at the bottom of that one
   screen and the homepage never scrolls, by design. There's no footer or
   any other section here — reaching anything else means using the nav.
-- Nine standalone pages hold everything else, each reached via a clean
+- Ten standalone pages hold everything else, each reached via a clean
   URL (Netlify serves `/slug` from `slug.html` by default, no redirects
   file needed):
   - `services.html`, `areas.html`, `pricing.html`, `reviews.html`,
     `faq.html` — the original content, unchanged, one per page.
   - `gallery.html` — the tile grid **plus** the Instagram/TikTok "Follow
     Along" embeds merged in below it (moved here from the homepage —
-    thematically both are "see our real work").
+    thematically both are "see our real work"), plus a real-photo
+    before/after slider (`images/suite-before.jpg` /
+    `images/suite-after.jpg`).
   - `design-studio.html` — the interactive color-picker widget.
   - `how-it-works.html` — the 4-step process.
   - `book.html` — the Calendly placeholder + "DM on Instagram Instead",
     now the destination for every "Get a Quote" button sitewide.
+  - `bachelorette-parties.html` — a dedicated pricing page (own 3-tier
+    Basic/Dream/Golden structure, own bachelorette-specific bullet
+    lists) targeting bachelorette-party search intent specifically.
+    Linked from the footer-links row and from a callout line on
+    `pricing.html` ("Planning a bachelorette? →"), not from the top nav.
 - **Nav bar (top, every page including the homepage) lists 7 pages**:
   Services / Areas / Pricing / Gallery / Reviews / FAQ / How It Works,
   switching to the mobile hamburger menu at the standard
-  `max-width:980px`. Design Studio and Book a Consult are deliberately
-  NOT in the top nav — a 9-item nav was tried and felt too cluttered —
-  they live in the footer-links row instead (present on every non-home
-  page) alongside Services/Pricing/Gallery/FAQ/Instagram/TikTok, and in
-  the homepage's mobile menu. Every "Get a Quote" button sitewide points
-  to `/book`.
+  `max-width:980px`. Design Studio, Bachelorette Parties, and Book a
+  Consult are deliberately NOT in the top nav — a 9-item nav was tried
+  and felt too cluttered — they live in the footer-links row instead
+  (present on every non-home page) alongside
+  Services/Pricing/Gallery/FAQ/Instagram/TikTok, and in the homepage's
+  mobile menu. Every "Get a Quote" button sitewide points to `/book`.
+- The contact form's Event Type dropdown (duplicated on every page's
+  footer) includes a "Bachelorette Party" option — pre-selected by
+  default only on `bachelorette-parties.html`.
 - No shared partials/includes (matches the "no build step" constraint) —
   each page duplicates its own nav, footer (incl. the Netlify contact
   form), and CSS/JS. Only `index.html` skips the footer entirely, since
@@ -128,9 +138,12 @@ in progress) → Namecheap domain. Live at https://lasvegasgoldenevents.com.
   Keep it that way unless asked to restructure again.
 - Don't add real testimonials/reviews as fact — current ones are clearly
   placeholder copy for the owner to replace with real reviews
-- Don't invent pricing beyond what's already set — current tiers are
-  Basic Package ($250), Dream Package ($300), and Golden Package ($500),
-  all "starting" prices
+- Don't invent pricing beyond what's already set — general pricing
+  (`pricing.html`) and bachelorette pricing (`bachelorette-parties.html`)
+  both use the same tier names/prices — Basic Package ($250), Dream
+  Package ($300), Golden Package ($500), all "starting" — but with
+  different bullet lists per page; don't assume a bullet on one page
+  applies to the other
 - Respect `prefers-reduced-motion` in any new animation work — the existing
   code already gates all animation behind it
 - The business intentionally doesn't publish a phone/email on the site —

@@ -67,6 +67,11 @@
   --line: rgba(203,161,53,0.22);
   --shadow: 0 20px 60px rgba(0,0,0,0.5);
   --ease: cubic-bezier(.22,1,.36,1);
+  /* Hot pink accent — used only on the "Bachelorette Parties" tab, as a
+     hint of the rose-gold theme on that page. */
+  --pink:#ec4899;
+  --pink-light:#f9a8d4;
+  --pink-deep:#9d174d;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -231,6 +236,22 @@ section{position:relative; z-index:2;}
 .crumb .here{ color:var(--gold-light); }
 .page-head h1{ font-size:clamp(2.1rem,4.4vw,3.1rem); margin:16px 0 22px; max-width:780px; }
 .page-head p{ max-width:640px; color:var(--cream-dim); font-size:1.02rem; line-height:1.75; }
+
+/* ============================= PRICING CATEGORY TABS ============================= */
+.price-tabs{ display:flex; gap:12px; flex-wrap:wrap; padding:40px 0 0; }
+.price-tab{
+  padding:10px 22px; border-radius:999px; border:1px solid var(--line);
+  font-size:0.84rem; color:var(--cream-dim); transition:all .3s var(--ease); white-space:nowrap;
+}
+.price-tab:hover{ border-color:var(--gold); color:var(--cream); }
+.price-tab.active{
+  background:var(--gold); color:#161310; border-color:var(--gold); font-weight:600;
+}
+.price-tab.pink:hover{ border-color:var(--pink); color:var(--cream); }
+.price-tab.pink.active{
+  background:linear-gradient(120deg, var(--pink-light), var(--pink) 60%, var(--pink-deep));
+  color:#2b0a1a; border-color:var(--pink);
+}
 
 /* ============================= REVEAL ============================= */
 [data-reveal]{ opacity:0; transform:translateY(34px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
@@ -435,6 +456,7 @@ section{position:relative; z-index:2;}
   <a href="/reviews" class="">Reviews</a>
   <a href="/faq" class="">FAQ</a>
   <a href="/design-studio" class="">Design Studio</a>
+  <a href="/bachelorette-parties" class="">Bachelorette Parties</a>
   <a href="/how-it-works" class="">How It Works</a>
   <a href="/book" class="">Book a Consult</a>
   <a href="#contact">Contact</a>
@@ -446,6 +468,10 @@ section{position:relative; z-index:2;}
     <span class="eyebrow">Investment</span>
     <h1>Packages built to fit the <span class="gold-text">moment</span></h1>
     <p>Every quote starts with a free consult and a custom digital mockup, so you know exactly what you're getting before you book anything.</p>
+    <div class="price-tabs" data-reveal>
+      <a href="/pricing" class="price-tab active">General</a>
+      <a href="/bachelorette-parties" class="price-tab pink">Bachelorette Parties</a>
+    </div>
   </div>
 
   <div class="section-pad container">
@@ -497,8 +523,7 @@ section{position:relative; z-index:2;}
         <a href="#contact" class="btn btn-outline">Get This Package</a>
       </div>
     </div>
-    <p class="pricing-note">*Final pricing depends on scale, balloon type, and location — every quote starts with a free consult.</p>
-  </div>
+    <p class="pricing-note">*Final pricing depends on scale, balloon type, and location — every quote starts with a free consult.</p>  </div>
 
   <div class="cta-band">
     <div class="container">
@@ -554,6 +579,7 @@ section{position:relative; z-index:2;}
         <select id="type" name="event_type">
           <option>Birthday</option>
           <option>Hotel Suite / Proposal</option>
+          <option>Bachelorette Party</option>
           <option>Baby Shower</option>
           <option>Grand Opening / Corporate</option>
           <option>Other</option>
@@ -575,6 +601,7 @@ section{position:relative; z-index:2;}
       <a href="/gallery">Gallery</a>
       <a href="/faq">FAQ</a>
       <a href="/design-studio">Design Studio</a>
+      <a href="/bachelorette-parties">Bachelorette Parties</a>
       <a href="/book">Book a Consult</a>
       <a href="https://www.instagram.com/lasvegasgoldenevents/" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@lvgoldenevents" target="_blank">TikTok</a>
