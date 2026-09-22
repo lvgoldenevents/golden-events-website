@@ -72,6 +72,9 @@ SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
   JSON-LD lives only on `faq.html`, next to the matching visible FAQ text
   (each `faq-item` has a stable `id`, e.g. `faq-cost`, so other pages can
   deep-link to a specific question with `/faq#faq-cost`).
+- `sitemap.xml` and `robots.txt` live at the repo root (plain static
+  files, no build step needed) and list all 11 clean-URL pages. Keep
+  `sitemap.xml` in sync whenever a page is added or removed.
 - Hidden AEO answer-first summary paragraph stays homepage-only.
 - Each page's CSS/JS only includes what that page actually uses —
   page-specific styles (e.g. `.designer`/`.swatches` on `design-studio.html`,
