@@ -1,0 +1,5 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="256" cy="256" r="256" fill="#0b0a08"/>
+  <circle cx="256" cy="256" r="234" fill="none" stroke="#8a6a1f" stroke-width="7"/>
+  <text x="256" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="150" font-weight="500" letter-spacing="6" fill="#cba135" text-anchor="middle">GE</text>
+</svg>
