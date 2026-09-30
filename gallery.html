@@ -363,6 +363,9 @@ section{position:relative; z-index:2;}
   transition:transform .5s var(--ease);
 }
 .tile-sm:hover{ transform:scale(1.02); }
+.tile-sm.tile-photo{ aspect-ratio:3/4; background-size:cover; background-position:center; }
+.gallery-cat-extra{ display:none; }
+.see-more-wrap{ text-align:center; margin-top:24px; }
 .tile-sm span{ font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.85); position:relative; z-index:2; }
 .cat-gold{ background:linear-gradient(160deg,#cba135,#0b0a08); }
 .cat-emerald{ background:linear-gradient(160deg,#1c4f3f,#0b0a08); }
@@ -616,10 +619,21 @@ section{position:relative; z-index:2;}
       <span class="eyebrow">Category</span>
       <h2>Bachelorette Parties</h2>
     </div>
-    <div class="gallery-cat" data-reveal>
-      <div class="tile-sm cat-blush"><span>Bach Weekend · The Strip</span></div>
-      <div class="tile-sm cat-gold"><span>Girls' Getaway · Downtown</span></div>
-      <div class="tile-sm cat-dark"><span>Bride Tribe Suite · Henderson</span></div>
+    <div class="gallery-cat" data-reveal id="bachGallery">
+      <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-soufer-in-love.jpg');"><span>Soufer In Love</span></div>
+      <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-mrs-charles.jpg');"><span>Mrs. Charles Reveal</span></div>
+      <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-jeannies-ride-1.jpg');"><span>Jeannie's Last Wild Ride</span></div>
+      <div class="gallery-cat-extra" id="bachExtra">
+        <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-jeannies-ride-2.jpg');"><span>Jeannie's Last Wild Ride</span></div>
+        <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-lucky-in-love-1.jpg');"><span>Lucky In Love</span></div>
+        <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-lucky-in-love-2.jpg');"><span>Lucky In Love Entrance</span></div>
+        <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-bride-1.jpg');"><span>Bride Suite</span></div>
+        <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-bride-2.jpg');"><span>Bride Suite · The Cosmopolitan</span></div>
+        <div class="tile-sm tile-photo" style="background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/bach-elaines-squad-goals.jpg');"><span>Elaine's Bachelorette · Squad Goals</span></div>
+      </div>
+    </div>
+    <div class="see-more-wrap">
+      <button class="btn btn-outline" id="bachSeeMore" aria-expanded="false" aria-controls="bachExtra">See More</button>
     </div>
   </div>
 
@@ -814,6 +828,19 @@ section{position:relative; z-index:2;}
 </footer>
 
 <script>
+// ---------- Gallery "See More" reveal ----------
+const bachSeeMore = document.getElementById('bachSeeMore');
+const bachExtra = document.getElementById('bachExtra');
+if(bachSeeMore && bachExtra){
+  bachSeeMore.addEventListener('click', () => {
+    const expanded = bachSeeMore.getAttribute('aria-expanded') === 'true';
+    bachExtra.style.display = expanded ? 'none' : 'contents';
+    bachSeeMore.setAttribute('aria-expanded', String(!expanded));
+    bachSeeMore.textContent = expanded ? 'See More' : 'See Less';
+    if(!expanded) bachExtra.scrollIntoView({block:'nearest'});
+  });
+}
+
 // ---------- Mobile menu ----------
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
