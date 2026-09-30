@@ -356,6 +356,21 @@ section{position:relative; z-index:2;}
 .tile-5{ grid-column:span 2; grid-row:span 1; background:linear-gradient(160deg,#cba135,#0b0a08); }
 .tile-6{ grid-row:span 1; background:linear-gradient(160deg,#1c4f3f,#3a3630); }
 
+.gallery-cat{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
+.tile-sm{
+  aspect-ratio:4/3; border-radius:16px; position:relative; overflow:hidden;
+  display:flex; align-items:flex-end; padding:16px; border:1px solid var(--line);
+  transition:transform .5s var(--ease);
+}
+.tile-sm:hover{ transform:scale(1.02); }
+.tile-sm span{ font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.85); position:relative; z-index:2; }
+.cat-gold{ background:linear-gradient(160deg,#cba135,#0b0a08); }
+.cat-emerald{ background:linear-gradient(160deg,#1c4f3f,#0b0a08); }
+.cat-blush{ background:linear-gradient(160deg,#a35a5a,#0b0a08); }
+.cat-dark{ background:linear-gradient(200deg,#3a3630,#0b0a08); }
+.cat-gold-deep{ background:linear-gradient(160deg,#8a6a1f,#0b0a08); }
+.cat-emerald-dark{ background:linear-gradient(160deg,#1c4f3f,#3a3630); }
+
 /* ============================= WIDGET SLOTS (Reviews) ============================= */
 .widget-slot{
   border:1px dashed var(--line); border-radius:20px; padding:44px;
@@ -486,6 +501,7 @@ section{position:relative; z-index:2;}
   .services-grid{ grid-template-columns:repeat(2,1fr); }
   .area-grid{ grid-template-columns:repeat(2,1fr); }
   .gallery{ grid-template-columns:repeat(2,1fr); }
+  .gallery-cat{ grid-template-columns:repeat(2,1fr); }
   .testimonials{ grid-template-columns:1fr; }
   .pricing-grid{ grid-template-columns:1fr; }
   .contact-form{ grid-template-columns:1fr; }
@@ -563,14 +579,83 @@ section{position:relative; z-index:2;}
       </div>
     </div>
     <p class="ba-caption">Drag the slider — empty Strip suite vs. styled for a 21st birthday.</p>
+  </div>
 
-    <div class="gallery" data-reveal style="margin-top:64px;">
-      <div class="tile tile-1"><span>Suite Proposal · The Strip</span></div>
-      <div class="tile tile-2"><span>Grand Opening · Downtown</span></div>
-      <div class="tile tile-3"><span>Baby Shower · Summerlin</span></div>
-      <div class="tile tile-4"><span>21st Birthday · The Strip</span></div>
-      <div class="tile tile-5"><span>Corporate Launch · Henderson</span></div>
-      <div class="tile tile-6"><span>Anniversary Suite · Henderson</span></div>
+  <!--
+    CATEGORY SECTIONS — placeholder gradient tiles (same style as the old
+    single gallery grid), grouped by occasion. Swap each .tile-sm's
+    background for a real photo (background-image or an <img>) as photos
+    come in; captions can stay or be replaced with real project details.
+  -->
+  <div class="section-pad container" style="padding-top:0;">
+    <div class="section-head" data-reveal style="margin-bottom:24px;">
+      <span class="eyebrow">Category</span>
+      <h2>Birthdays</h2>
+    </div>
+    <div class="gallery-cat" data-reveal>
+      <div class="tile-sm cat-gold"><span>Sweet 16 · Summerlin</span></div>
+      <div class="tile-sm cat-gold-deep"><span>1st Birthday · Henderson</span></div>
+      <div class="tile-sm cat-dark"><span>Golden Birthday · The Strip</span></div>
+    </div>
+  </div>
+
+  <div class="section-pad container">
+    <div class="section-head" data-reveal style="margin-bottom:24px;">
+      <span class="eyebrow">Category</span>
+      <h2>Anniversaries</h2>
+    </div>
+    <div class="gallery-cat" data-reveal>
+      <div class="tile-sm cat-emerald"><span>10th Anniversary · The Strip</span></div>
+      <div class="tile-sm cat-emerald-dark"><span>Vow Renewal · Henderson</span></div>
+      <div class="tile-sm cat-blush"><span>Silver Anniversary · Summerlin</span></div>
+    </div>
+  </div>
+
+  <div class="section-pad container">
+    <div class="section-head" data-reveal style="margin-bottom:24px;">
+      <span class="eyebrow">Category</span>
+      <h2>Bachelorette Parties</h2>
+    </div>
+    <div class="gallery-cat" data-reveal>
+      <div class="tile-sm cat-blush"><span>Bach Weekend · The Strip</span></div>
+      <div class="tile-sm cat-gold"><span>Girls' Getaway · Downtown</span></div>
+      <div class="tile-sm cat-dark"><span>Bride Tribe Suite · Henderson</span></div>
+    </div>
+  </div>
+
+  <div class="section-pad container">
+    <div class="section-head" data-reveal style="margin-bottom:24px;">
+      <span class="eyebrow">Category</span>
+      <h2>Romantic</h2>
+    </div>
+    <div class="gallery-cat" data-reveal>
+      <div class="tile-sm cat-blush"><span>Date Night Suite · The Strip</span></div>
+      <div class="tile-sm cat-dark"><span>Rose Petal Setup · Summerlin</span></div>
+      <div class="tile-sm cat-gold-deep"><span>Romantic Getaway · Henderson</span></div>
+    </div>
+  </div>
+
+  <div class="section-pad container">
+    <div class="section-head" data-reveal style="margin-bottom:24px;">
+      <span class="eyebrow">Category</span>
+      <h2>Talent</h2>
+    </div>
+    <div class="gallery-cat" data-reveal>
+      <div class="tile-sm cat-dark"><span>Live Performer · The Strip</span></div>
+      <div class="tile-sm cat-gold-deep"><span>DJ Set · Downtown</span></div>
+      <div class="tile-sm cat-emerald"><span>Dance Entertainment · Henderson</span></div>
+    </div>
+  </div>
+
+  <div class="section-pad container">
+    <div class="section-head" data-reveal style="margin-bottom:24px;">
+      <span class="eyebrow">Category</span>
+      <h2>Clients</h2>
+    </div>
+    <div class="gallery-cat" data-reveal>
+      <div class="tile-sm cat-gold"><span>Client Reveal · The Strip</span></div>
+      <div class="tile-sm cat-emerald-dark"><span>Happy Client · Henderson</span></div>
+      <div class="tile-sm cat-blush"><span>Client Celebration · Summerlin</span></div>
     </div>
   </div>
 
