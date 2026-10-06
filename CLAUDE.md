@@ -17,11 +17,10 @@ Moments Into Golden Memories."
 
 ## Brand / design direction
 Black-and-gold luxury aesthetic matching their real balloon work. Fonts:
-Fraunces (display/headings) + Sora (body). Signature interactive element:
-a "Design Studio" section where clicking color swatches live-recolors an
-SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
+Fraunces (display/headings) + Sora (body). Premium, animated, "fun Vegas
+glam" — not corporate.
 
-## Site structure — 11-page static site, no build step
+## Site structure — 10-page static site, no build step
 - `index.html` — homepage is **intentionally just the hero + marquee,
   full stop**: Nav → Hero (animated balloon field + cursor gold-dust
   trail) → curtain entrance animation on load → the service-area marquee
@@ -30,7 +29,7 @@ SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
   `flex:0 0 auto`, so the marquee always sits at the bottom of that one
   screen and the homepage never scrolls, by design. There's no footer or
   any other section here — reaching anything else means using the nav.
-- Ten standalone pages hold everything else, each reached via a clean
+- Nine standalone pages hold everything else, each reached via a clean
   URL (Netlify serves `/slug` from `slug.html` by default, no redirects
   file needed):
   - `services.html`, `areas.html`, `pricing.html`, `reviews.html`,
@@ -40,8 +39,7 @@ SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
     thematically both are "see our real work"), plus a real-photo
     before/after slider (`images/suite-before.jpg` /
     `images/suite-after.jpg`).
-  - `design-studio.html` — the interactive color-picker widget.
-  - `how-it-works.html` — the 4-step process.
+  - `how-it-works.html` — the 3-step process.
   - `book.html` — the Calendly placeholder + "DM on Instagram Instead",
     now the destination for every "Get a Quote" button sitewide.
   - `bachelorette-parties.html` — a dedicated pricing page (own 3-tier
@@ -52,9 +50,9 @@ SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
 - **Nav bar (top, every page including the homepage) lists 7 pages**:
   Services / Areas / Pricing / Gallery / Reviews / FAQ / How It Works,
   switching to the mobile hamburger menu at the standard
-  `max-width:980px`. Design Studio, Bachelorette Parties, and Book a
-  Consult are deliberately NOT in the top nav — a 9-item nav was tried
-  and felt too cluttered — they live in the footer-links row instead
+  `max-width:980px`. Bachelorette Parties and Book a Consult are
+  deliberately NOT in the top nav — a crowded nav was tried and felt
+  too cluttered — they live in the footer-links row instead
   (present on every non-home page) alongside
   Services/Pricing/Gallery/FAQ/Instagram/TikTok, and in the homepage's
   mobile menu. Every "Get a Quote" button sitewide points to `/book`.
@@ -73,13 +71,13 @@ SVG balloon arch. Premium, animated, "fun Vegas glam" — not corporate.
   (each `faq-item` has a stable `id`, e.g. `faq-cost`, so other pages can
   deep-link to a specific question with `/faq#faq-cost`).
 - `sitemap.xml` and `robots.txt` live at the repo root (plain static
-  files, no build step needed) and list all 11 clean-URL pages. Keep
+  files, no build step needed) and list all 10 clean-URL pages. Keep
   `sitemap.xml` in sync whenever a page is added or removed.
 - Hidden AEO answer-first summary paragraph stays homepage-only.
 - Each page's CSS/JS only includes what that page actually uses —
-  page-specific styles (e.g. `.designer`/`.swatches` on `design-studio.html`,
-  `.process`/`.step` on `how-it-works.html`, `.social-embed-*`/`.ig-strip`
-  on `gallery.html`) live in a `<style>` block in that page's own `<head>`,
+  page-specific styles (e.g. `.process`/`.step` on `how-it-works.html`,
+  `.social-embed-*`/`.ig-strip` on `gallery.html`) live in a `<style>`
+  block in that page's own `<head>`,
   not in the shared boilerplate. Keep that discipline when adding new
   pages: don't copy component CSS "just in case" a page doesn't use it.
 - **Local testing**: a plain static file server (e.g. `ruby -run -e httpd`)
