@@ -371,12 +371,14 @@ section{position:relative; z-index:2;}
   position:absolute; inset:0; z-index:1;
   background:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%);
 }
-.mute-toggle{
-  position:absolute; top:12px; right:12px; z-index:3; width:32px; height:32px;
+.mute-toggle, .fullscreen-toggle{
+  position:absolute; top:12px; z-index:3; width:32px; height:32px;
   border-radius:50%; background:rgba(11,10,8,0.6); color:var(--cream);
   display:flex; align-items:center; justify-content:center; font-size:0.85rem;
   border:1px solid rgba(246,239,224,0.3); cursor:pointer;
 }
+.mute-toggle{ right:12px; }
+.fullscreen-toggle{ right:54px; }
 .tile-sm.tile-video span{ padding:0 16px 16px; }
 .gallery-cat-extra{ display:none; }
 .see-more-wrap{ text-align:center; margin-top:24px; }
@@ -674,6 +676,7 @@ section{position:relative; z-index:2;}
         </video>
         <div class="tile-video-overlay"></div>
         <button class="mute-toggle" data-video-toggle aria-label="Unmute video">🔇</button>
+        <button class="fullscreen-toggle" data-video-fullscreen aria-label="Watch fullscreen">⛶</button>
         <span>Client Video Review</span>
       </div>
       <div class="tile-sm cat-dark"><span>Live Performer · The Strip</span></div>
@@ -886,6 +889,21 @@ document.querySelectorAll('[data-video-toggle]').forEach(btn => {
     const video = btn.closest('.tile-video').querySelector('video');
     video.muted = !video.muted;
     btn.textContent = video.muted ? '🔇' : '🔊';
+  });
+});
+
+// ---------- Gallery video fullscreen ----------
+document.querySelectorAll('[data-video-fullscreen]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const tile = btn.closest('.tile-video');
+    const video = tile.querySelector('video');
+    if(video.requestFullscreen) video.requestFullscreen();
+    else if(video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+    else if(video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+    video.muted = false;
+    const muteBtn = tile.querySelector('[data-video-toggle]');
+    if(muteBtn) muteBtn.textContent = '🔊';
   });
 });
 
