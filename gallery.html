@@ -363,7 +363,7 @@ section{position:relative; z-index:2;}
   transition:transform .5s var(--ease);
 }
 .tile-sm:hover{ transform:scale(1.02); }
-.tile-sm.tile-photo{ aspect-ratio:3/4; background-size:cover; background-position:center; }
+.tile-sm.tile-photo{ aspect-ratio:3/4; background-size:cover; background-position:center; align-self:start; }
 .gallery-cat-extra{ display:none; }
 .see-more-wrap{ text-align:center; margin-top:24px; }
 .tile-sm span{ font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.85); position:relative; z-index:2; }
@@ -667,9 +667,9 @@ section{position:relative; z-index:2;}
       <h2>Clients</h2>
     </div>
     <div class="gallery-cat" data-reveal>
-      <div class="tile-sm cat-gold"><span>Client Reveal · The Strip</span></div>
-      <div class="tile-sm cat-emerald-dark"><span>Happy Client · Henderson</span></div>
-      <div class="tile-sm cat-blush"><span>Client Celebration · Summerlin</span></div>
+      <div class="tile-sm tile-photo" style="aspect-ratio:900/607; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-celebration.jpg');"><span>Client Celebration · The Strip</span></div>
+      <div class="tile-sm tile-photo" style="aspect-ratio:900/810; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-bride-reveal.jpg');"><span>Bride Reveal</span></div>
+      <div class="tile-sm tile-photo" style="aspect-ratio:900/1184; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-30th-birthday.jpg');"><span>Happy 30th Birthday</span></div>
     </div>
   </div>
 
