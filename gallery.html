@@ -665,10 +665,25 @@ section{position:relative; z-index:2;}
       <span class="eyebrow">Category</span>
       <h2>Clients</h2>
     </div>
-    <div class="gallery-cat" data-reveal>
+    <div class="gallery-cat" data-reveal id="clientsGallery">
       <div class="tile-sm tile-photo" style="aspect-ratio:900/607; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-celebration.jpg');"><span>Client Celebration · The Strip</span></div>
       <div class="tile-sm tile-photo" style="aspect-ratio:900/810; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-bride-reveal.jpg');"><span>Bride Reveal</span></div>
       <div class="tile-sm tile-photo" style="aspect-ratio:900/1184; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-30th-birthday.jpg');"><span>Happy 30th Birthday</span></div>
+      <div class="gallery-cat-extra" id="clientsExtra">
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/971; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-bride-veil-reveal.jpg');"><span>Bride Veil Reveal</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/1066; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-birthday-suite.jpg');"><span>Birthday Suite Celebration</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/1059; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-bride-to-be.jpg');"><span>Bride To Be</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/1422; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-45th-birthday.jpg');"><span>Happy 45th Birthday</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/1077; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-jackpot-squad.jpg');"><span>Bachelorette Squad · Jackpot Night</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/537; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-ring-celebration.jpg');"><span>Ring Themed Celebration</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/1065; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-lucky-in-love-squad.jpg');"><span>Bachelorette Squad · Lucky In Love</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/444; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-finally-legal.jpg');"><span>Finally Legal · 21st Birthday</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/1012; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-24th-birthday.jpg');"><span>Happy 24th Birthday</span></div>
+        <div class="tile-sm tile-photo" style="aspect-ratio:800/1404; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-jess-bachelorette.jpg');"><span>Jess' Bachelorette Weekend</span></div>
+      </div>
+    </div>
+    <div class="see-more-wrap">
+      <button class="btn btn-outline" id="clientsSeeMore" aria-expanded="false" aria-controls="clientsExtra">See More</button>
     </div>
   </div>
 
@@ -827,17 +842,20 @@ section{position:relative; z-index:2;}
 
 <script>
 // ---------- Gallery "See More" reveal ----------
-const bachSeeMore = document.getElementById('bachSeeMore');
-const bachExtra = document.getElementById('bachExtra');
-if(bachSeeMore && bachExtra){
-  bachSeeMore.addEventListener('click', () => {
-    const expanded = bachSeeMore.getAttribute('aria-expanded') === 'true';
-    bachExtra.style.display = expanded ? 'none' : 'contents';
-    bachSeeMore.setAttribute('aria-expanded', String(!expanded));
-    bachSeeMore.textContent = expanded ? 'See More' : 'See Less';
-    if(!expanded) bachExtra.scrollIntoView({block:'nearest'});
+function setupSeeMore(btnId, extraId){
+  const btn = document.getElementById(btnId);
+  const extra = document.getElementById(extraId);
+  if(!btn || !extra) return;
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    extra.style.display = expanded ? 'none' : 'contents';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.textContent = expanded ? 'See More' : 'See Less';
+    if(!expanded) extra.scrollIntoView({block:'nearest'});
   });
 }
+setupSeeMore('bachSeeMore', 'bachExtra');
+setupSeeMore('clientsSeeMore', 'clientsExtra');
 
 // ---------- Mobile menu ----------
 const menuToggle = document.getElementById('menuToggle');
