@@ -679,6 +679,16 @@ section{position:relative; z-index:2;}
         <button class="fullscreen-toggle" data-video-fullscreen aria-label="Watch fullscreen">⛶</button>
         <span>Client Video Review</span>
       </div>
+      <div class="tile-sm tile-video" style="aspect-ratio:576/1024;">
+        <video muted loop playsinline webkit-playsinline autoplay>
+          <source src="/videos/client-phoenix-suns-surprise.mp4" type="video/mp4">
+        </video>
+        <div class="tile-video-overlay"></div>
+        <button class="mute-toggle" data-video-toggle aria-label="Unmute video">🔇</button>
+        <button class="fullscreen-toggle" data-video-fullscreen aria-label="Watch fullscreen">⛶</button>
+        <span>Phoenix Suns Surprise Reveal</span>
+      </div>
+      <div class="tile-sm tile-photo" style="aspect-ratio:800/1107; background-image:linear-gradient(to top, rgba(11,10,8,0.75), rgba(11,10,8,0) 55%), url('/images/client-baecation.jpg');"><span>Baecation</span></div>
       <div class="tile-sm cat-dark"><span>Live Performer · The Strip</span></div>
       <div class="tile-sm cat-gold-deep"><span>DJ Set · Downtown</span></div>
       <div class="tile-sm cat-emerald"><span>Dance Entertainment · Henderson</span></div>
@@ -883,11 +893,14 @@ setupSeeMore('bachSeeMore', 'bachExtra');
 setupSeeMore('clientsSeeMore', 'clientsExtra');
 
 // ---------- Gallery video mute toggle ----------
+// Looping is only for the silent ambient preview — once someone unmutes to
+// actually listen, the clip should play through once instead of repeating.
 document.querySelectorAll('[data-video-toggle]').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
     const video = btn.closest('.tile-video').querySelector('video');
     video.muted = !video.muted;
+    video.loop = video.muted;
     btn.textContent = video.muted ? '🔇' : '🔊';
   });
 });
@@ -902,6 +915,7 @@ document.querySelectorAll('[data-video-fullscreen]').forEach(btn => {
     else if(video.webkitRequestFullscreen) video.webkitRequestFullscreen();
     else if(video.webkitEnterFullscreen) video.webkitEnterFullscreen();
     video.muted = false;
+    video.loop = false;
     const muteBtn = tile.querySelector('[data-video-toggle]');
     if(muteBtn) muteBtn.textContent = '🔊';
   });
